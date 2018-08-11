@@ -1,32 +1,39 @@
 import React, { Component } from "react";
 
-const handleMouseEnter = evt => {
-  console.log(evt.target);
-};
-
 export default class PortfolioItem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      portfolioItemClass: null
+    };
+  }
+
+  handleMouseEnter(evt) {
+    console.log(evt.target);
+  }
+
   render() {
+    const { bgImage, logo, name, description } = this.props.portfolioItem;
+
     return (
       <div
-        className="portfolio-item-wrapper"
-        onMouseEnter={e => handleMouseEnter(e)}
+        className={"portfolio-item-wrapper " + this.state.portfolioItemClass}
+        onMouseEnter={e => this.handleMouseEnter(e)}
       >
         <div
           className="portfolio-img-background"
           style={{
-            backgroundImage: "url(" + this.props.portfolioItem.bgImage + ")"
+            backgroundImage: "url(" + bgImage + ")"
           }}
         />
 
         <div className="img-text-wrapper">
           <div className="logo-wrapper">
-            <img
-              src={this.props.portfolioItem.logo}
-              alt={this.props.portfolioItem.name}
-            />
+            <img src={logo} alt={name} />
           </div>
 
-          <div className="subtitle">{this.props.portfolioItem.description}</div>
+          <div className="subtitle">{description}</div>
         </div>
       </div>
     );
