@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const NavLinks = () => {
   return (
     <div>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
+      <Link to="/">Home</Link>
+      <Link to="/about">About Me</Link>
     </div>
   );
 };
