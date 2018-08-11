@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import portfolioItemData from "./data.json";
+import portfolioItemData from "../../data/portfolio-items.json";
 
 const PortfolioItem = props => {
   return (
