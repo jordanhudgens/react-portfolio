@@ -9,8 +9,12 @@ export default class PortfolioItem extends Component {
     };
   }
 
-  handleMouseEnter(evt) {
-    console.log(evt.target);
+  handleMouseEnter() {
+    this.setState({ portfolioItemClass: "image-blur" });
+  }
+
+  handleMouseLeave() {
+    this.setState({ portfolioItemClass: null });
   }
 
   render() {
@@ -18,11 +22,14 @@ export default class PortfolioItem extends Component {
 
     return (
       <div
-        className={"portfolio-item-wrapper " + this.state.portfolioItemClass}
-        onMouseEnter={e => this.handleMouseEnter(e)}
+        className="portfolio-item-wrapper"
+        onMouseEnter={() => this.handleMouseEnter()}
+        onMouseLeave={() => this.handleMouseLeave()}
       >
         <div
-          className="portfolio-img-background"
+          className={
+            "portfolio-img-background " + this.state.portfolioItemClass
+          }
           style={{
             backgroundImage: "url(" + bgImage + ")"
           }}
