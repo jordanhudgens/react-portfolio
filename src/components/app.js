@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import Home from "./views/home";
+import About from "./views/about";
+import NoMatch from "./views/no-match";
 
 const NavLinks = () => {
   return (
@@ -14,8 +18,16 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <NavLinks />
-        <h1>Portfolio Application</h1>
+        <Router>
+          <div>
+            <NavLinks />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
