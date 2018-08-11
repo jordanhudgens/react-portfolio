@@ -10,30 +10,7 @@ import {
 import Home from "./views/home";
 import About from "./views/about";
 import NoMatch from "./views/no-match";
-
-const NavLinks = () => {
-  return (
-    <div className="nav-wrapper">
-      <div className="left-side">
-        <div className="nav-link-wrapper">
-          <NavLink exact to="/" activeClassName="active-nav-link">
-            Home
-          </NavLink>
-        </div>
-
-        <div className="nav-link-wrapper">
-          <NavLink to="/about" activeClassName="active-nav-link">
-            About Me
-          </NavLink>
-        </div>
-      </div>
-
-      <div className="left-side">
-        <div className="brand">JORDAN HUDGENS</div>
-      </div>
-    </div>
-  );
-};
+import NavLinks from "./partials/navigation";
 
 export default class App extends Component {
   render() {
