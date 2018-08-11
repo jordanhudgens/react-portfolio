@@ -2,9 +2,16 @@ import React, { Component } from "react";
 
 import portfolioItemData from "../../data/portfolio-items.json";
 
+const handleMouseEnter = evt => {
+  console.log(evt.target);
+};
+
 const PortfolioItem = props => {
   return (
-    <div className="portfolio-item-wrapper">
+    <div
+      className="portfolio-item-wrapper"
+      onMouseEnter={e => handleMouseEnter(e)}
+    >
       <div
         className="portfolio-img-background"
         style={{
