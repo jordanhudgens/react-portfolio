@@ -6,19 +6,16 @@ const PortfolioItem = props => {
       <div
         className="portfolio-img-background"
         style={{
-          backgroundImage: "url(https://source.unsplash.com/random)"
+          backgroundImage: "url(" + props.portfolioItem.bgImage + ")"
         }}
       />
 
       <div className="img-text-wrapper">
         <div className="logo-wrapper">
-          <img src="images/logos/quip.png" alt="" />
+          <img src={props.portfolioItem.logo} alt={props.portfolioItem.name} />
         </div>
 
-        <div className="subtitle">
-          I built the Quip Ecommerce platform, named a Top 25 Invention by Time
-          Magazine in 2016.
-        </div>
+        <div className="subtitle">{props.portfolioItem.description}</div>
       </div>
     </div>
   );
@@ -32,7 +29,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/crondose.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/crondose.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/crondose.png",
+      description: "Online tutorials and productivity tips."
     },
     {
       id: 2,
@@ -40,7 +38,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/dailysmarty.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/dailysmarty.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/dailysmarty.png",
+      description: "Keep track of what you learn every day."
     },
     {
       id: 3,
@@ -48,7 +47,9 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/dashtrack.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/dashtrack.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/dashtrack.png",
+      description:
+        "What you track improves. DashTrack is a journal that makes it easy to track your daily tasks and make the most of your time each day."
     },
     {
       id: 4,
@@ -56,7 +57,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/devcamp.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/devcamp.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/devcamp.png",
+      description: "Coding bootcamp and learning management system."
     },
     {
       id: 5,
@@ -64,7 +66,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/devtrunk.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/devtrunk.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/devtrunk.png",
+      description: "Online shop for developer happiness."
     },
     {
       id: 6,
@@ -72,7 +75,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/edutechional.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/edutechional.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/edutechional.png",
+      description: "Online technology tutorials."
     },
     {
       id: 7,
@@ -80,7 +84,9 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/eventbrite.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/eventbrite.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/eventbrite.png",
+      description:
+        "Eventbrite is the leading event management platform on the web with millions of individuals utilizing their applications to find, register or, and management events in numerous industries."
     },
     {
       id: 8,
@@ -88,7 +94,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/ministry-safe.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/ministry-safe.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/ministry-safe.png",
+      description: "A complete child safety system for organizations."
     },
     {
       id: 9,
@@ -96,7 +103,8 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/open-devos.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/open-devos.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/open-devos.png",
+      description: "Publish and share daily devotionals."
     },
     {
       id: 10,
@@ -104,7 +112,9 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/quip.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/quip.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/quip.png",
+      description:
+        "I built the Quip Ecommerce platform, named a Top 25 Invention by Time Magazine in 2016."
     },
     {
       id: 11,
@@ -112,7 +122,9 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/shop-hacker.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/shop-hacker.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/shop-hacker.png",
+      description:
+        "Shop Hacker allows you to easily import digital products such as elearning courses, software, and games directly into your ecommerce store."
     },
     {
       id: 12,
@@ -120,12 +132,14 @@ const PortfolioList = () => {
       bgImage:
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/toastability.jpg",
       logo:
-        "https://raw.githubusercontent.com/jordanhudgens/portfolio-html-site/master/images/logos/toastability.png"
+        "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/toastability.png",
+      description:
+        "Easy way to manage the digital life of your bar or restaurant."
     }
   ];
 
   const portfolioListItems = data.map(item => {
-    return <PortfolioItem key={item.id} />;
+    return <PortfolioItem key={item.id} portfolioItem={item} />;
   });
 
   return (
