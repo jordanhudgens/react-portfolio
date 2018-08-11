@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import profileImg from "../../../static/assets/images/about/profile.jpg";
 
 export default class About extends Component {
   render() {
@@ -6,7 +7,7 @@ export default class About extends Component {
       <div className="content-wrapper">
         <div className="two-column-wrapper">
           <div className="profile-image-wrapper">
-            <img src="images/profile.jpg" alt="Profile Image" />
+            <img src={profileImg} alt="Profile Image" />
           </div>
 
           <div className="profile-content-wrapper">
