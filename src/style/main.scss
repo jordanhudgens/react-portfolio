@@ -1,3 +1,5 @@
+$teal: #26bfd4;
+
 body {
   font-family: "Titillium Web", sans-serif;
   margin: 0px;
@@ -73,4 +75,16 @@ body {
 
 .profile-content-wrapper h1 {
   color: lightseagreen;
+}
+
+.portfolio-detail-wrapper {
+  width: 100vw;
+
+  .banner {
+    height: 300px;
+    background-color: $teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
