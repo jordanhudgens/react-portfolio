@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class PortfolioItem extends Component {
   constructor(props) {
@@ -21,28 +22,30 @@ export default class PortfolioItem extends Component {
     const { bgImage, logo, name, description } = this.props.portfolioItem;
 
     return (
-      <div
-        className="portfolio-item-wrapper"
-        onMouseEnter={() => this.handleMouseEnter()}
-        onMouseLeave={() => this.handleMouseLeave()}
-      >
+      <Link to="/portfolio/123">
         <div
-          className={
-            "portfolio-img-background " + this.state.portfolioItemClass
-          }
-          style={{
-            backgroundImage: "url(" + bgImage + ")"
-          }}
-        />
+          className="portfolio-item-wrapper"
+          onMouseEnter={() => this.handleMouseEnter()}
+          onMouseLeave={() => this.handleMouseLeave()}
+        >
+          <div
+            className={
+              "portfolio-img-background " + this.state.portfolioItemClass
+            }
+            style={{
+              backgroundImage: "url(" + bgImage + ")"
+            }}
+          />
 
-        <div className="img-text-wrapper">
-          <div className="logo-wrapper">
-            <img src={logo} alt={name} />
+          <div className="img-text-wrapper">
+            <div className="logo-wrapper">
+              <img src={logo} alt={name} />
+            </div>
+
+            <div className="subtitle">{description}</div>
           </div>
-
-          <div className="subtitle">{description}</div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
