@@ -19,10 +19,11 @@ export default class PortfolioItem extends Component {
   }
 
   render() {
-    const { bgImage, logo, name, description } = this.props.portfolioItem;
+    const { id, bgImage, logo, name, description } = this.props.portfolioItem;
+    const portfolioDetailPath = `/portfolio/${id}`;
 
     return (
-      <Link to="/portfolio/123">
+      <Link to={portfolioDetailPath}>
         <div
           className="portfolio-item-wrapper"
           onMouseEnter={() => this.handleMouseEnter()}
