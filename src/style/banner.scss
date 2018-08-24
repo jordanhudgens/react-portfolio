@@ -1,0 +1,13 @@
+.bottom-content-wrapper {
+  bottom: 0;
+  position: fixed;
+
+  height: 100px;
+  width: 100vw;
+  background-color: $teal;
+  border-top: 10px solid $dark-teal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
