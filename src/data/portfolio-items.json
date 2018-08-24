@@ -7,7 +7,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/crondose.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/crondose.png",
-      "description": "Online tutorials and productivity tips."
+      "description": "Online tutorials and productivity tips.",
+      "url": "https://www.crondose.com"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/dailysmarty.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/dailysmarty.png",
-      "description": "Keep track of what you learn every day."
+      "description": "Keep track of what you learn every day.",
+      "url": "http://www.dailysmarty.com"
     },
     {
       "id": 3,
@@ -26,7 +28,8 @@
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/dashtrack.png",
       "description":
-        "What you track improves. DashTrack is a journal that makes it easy to track your daily tasks and make the most of your time each day."
+        "What you track improves. DashTrack is a journal that makes it easy to track your daily tasks and make the most of your time each day.",
+      "url": "https://www.dashtrack.com"
     },
     {
       "id": 4,
@@ -35,7 +38,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/devcamp.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/devcamp.png",
-      "description": "Coding bootcamp and learning management system."
+      "description": "Coding bootcamp and learning management system.",
+      "url": "https://www.devcamp.com"
     },
     {
       "id": 5,
@@ -44,7 +48,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/devtrunk.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/devtrunk.png",
-      "description": "Online shop for developer happiness."
+      "description": "Online shop for developer happiness.",
+      "url": "https://www.devtrunk.com"
     },
     {
       "id": 6,
@@ -53,7 +58,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/edutechional.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/edutechional.png",
-      "description": "Online technology tutorials."
+      "description": "Online technology tutorials.",
+      "url": "https://www.edutechional.com"
     },
     {
       "id": 7,
@@ -63,7 +69,8 @@
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/eventbrite.png",
       "description":
-        "Eventbrite is the leading event management platform on the web with millions of individuals utilizing their applications to find, register or, and management events in numerous industries."
+        "Eventbrite is the leading event management platform on the web with millions of individuals utilizing their applications to find, register or, and management events in numerous industries.",
+      "url": "https://www.eventbrite.com"
     },
     {
       "id": 8,
@@ -72,7 +79,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/ministry-safe.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/ministry-safe.png",
-      "description": "A complete child safety system for organizations."
+      "description": "A complete child safety system for organizations.",
+      "url": "https://www.ministrysafe.com"
     },
     {
       "id": 9,
@@ -81,7 +89,8 @@
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/backgrounds/open-devos.jpg",
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/open-devos.png",
-      "description": "Publish and share daily devotionals."
+      "description": "Publish and share daily devotionals.",
+      "url": "https://www.opendevos.com"
     },
     {
       "id": 10,
@@ -91,7 +100,8 @@
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/quip.png",
       "description":
-        "I built the Quip Ecommerce platform, named a Top 25 Invention by Time Magazine in 2016."
+        "I built the Quip Ecommerce platform, named a Top 25 Invention by Time Magazine in 2016.",
+      "url": "https://www.getquip.com"
     },
     {
       "id": 11,
@@ -101,7 +111,8 @@
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/shop-hacker.png",
       "description":
-        "Shop Hacker allows you to easily import digital products such as elearning courses, software, and games directly into your ecommerce store."
+        "Shop Hacker allows you to easily import digital products such as elearning courses, software, and games directly into your ecommerce store.",
+      "url": "https://www.shophacker.com"
     },
     {
       "id": 12,
@@ -111,7 +122,8 @@
       "logo":
         "https://s3.amazonaws.com/bottega-devcamp/react-portfolio/logos/toastability.png",
       "description":
-        "Easy way to manage the digital life of your bar or restaurant."
+        "Easy way to manage the digital life of your bar or restaurant.",
+      "url": "https://www.toastability.com"
     }
   ]
 }

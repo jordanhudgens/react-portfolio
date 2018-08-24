@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Banner from "../partials/banner";
+
 import portfolioItemData from "../../data/portfolio-items.json";
 
 export default class PortfolioDetail extends Component {
@@ -18,7 +20,15 @@ export default class PortfolioDetail extends Component {
   }
 
   render() {
-    const { id, bgImage, logo, name, description } = this.state.portfolioItem;
+    const {
+      id,
+      bgImage,
+      logo,
+      name,
+      description,
+      url
+    } = this.state.portfolioItem;
+
     const bannerStyles = {
       backgroundImage: "url(" + bgImage + ")",
       backgroundSize: "cover",
@@ -40,11 +50,7 @@ export default class PortfolioDetail extends Component {
           <div className="description">{description}</div>
         </div>
 
-        <div className="bottom-content-wrapper">
-          <a href="https://google.com" className="btn btn__white btn__lg">
-            {name}
-          </a>
-        </div>
+        <Banner name={name} bannerLink={url} />
       </div>
     );
   }
