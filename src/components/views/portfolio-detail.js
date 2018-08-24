@@ -39,6 +39,12 @@ export default class PortfolioDetail extends Component {
         <div className="portfolio-detail-description-wrapper">
           <div className="description">{description}</div>
         </div>
+
+        <div className="bottom-content-wrapper">
+          <a href="https://google.com" className="btn btn__white btn__lg">
+            {name}
+          </a>
+        </div>
       </div>
     );
   }

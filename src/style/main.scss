@@ -1,4 +1,5 @@
 $teal: #26bfd4;
+$dark-teal: #207b88;
 
 body {
   font-family: "Titillium Web", sans-serif;
@@ -97,6 +98,44 @@ body {
     .description {
       width: 500px;
       font-size: 4em;
+      margin-bottom: 150px;
     }
+  }
+}
+
+.bottom-content-wrapper {
+  bottom: 0;
+  position: fixed;
+
+  height: 100px;
+  width: 100vw;
+  background-color: $teal;
+  border-top: 10px solid $dark-teal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  color: $teal;
+  padding: 10px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+
+  &__white {
+    background-color: white;
+
+    &:hover {
+      background-color: $teal;
+      color: white;
+      border: 2px solid white;
+    }
+  }
+
+  &__lg {
+    font-size: 1.3rem;
   }
 }
