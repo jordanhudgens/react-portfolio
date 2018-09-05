@@ -18,6 +18,12 @@ const NavLinks = () => {
             About Me
           </NavLink>
         </div>
+
+        <div className="nav-link-wrapper">
+          <NavLink to="/blog" activeClassName="active-nav-link">
+            Blog
+          </NavLink>
+        </div>
       </div>
 
       <div className="left-side">

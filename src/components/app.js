@@ -10,6 +10,7 @@ import {
 import Home from "./views/home";
 import About from "./views/about";
 import PortfolioDetail from "./views/portfolio-detail";
+import Blog from "./views/blog";
 import NoMatch from "./views/no-match";
 import NavLinks from "./partials/navigation";
 
@@ -24,6 +25,7 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
+              <Route path="/blog" component={Blog} />
               <Route component={NoMatch} />
             </Switch>
           </div>
