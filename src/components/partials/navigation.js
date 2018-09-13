@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 import "../../style/nav.scss";
 
 const NavLinks = () => {
-  const newPortfolioLink = () => {
+  const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
-        <NavLink to="/portfolio/new" activeClassName="active-nav-link">
-          New Portfolio
+        <NavLink to={route} activeClassName="active-nav-link">
+          {linkText}
         </NavLink>
       </div>
     );
@@ -30,12 +30,13 @@ const NavLinks = () => {
         </div>
 
         <div className="nav-link-wrapper">
-          <NavLink to="/blogs" activeClassName="active-nav-link">
+          <NavLink exact to="/blogs" activeClassName="active-nav-link">
             Blog
           </NavLink>
         </div>
 
-        {true ? newPortfolioLink() : null}
+        {true ? dynamicLink("/blogs/new", "New Blog") : null}
+        {true ? dynamicLink("/portfolio/new", "New Portfolio") : null}
       </div>
 
       <div className="left-side">
