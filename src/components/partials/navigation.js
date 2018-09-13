@@ -20,7 +20,7 @@ const NavLinks = () => {
         </div>
 
         <div className="nav-link-wrapper">
-          <NavLink to="/blog" activeClassName="active-nav-link">
+          <NavLink to="/blogs" activeClassName="active-nav-link">
             Blog
           </NavLink>
         </div>
