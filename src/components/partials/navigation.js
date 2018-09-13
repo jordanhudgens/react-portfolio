@@ -4,6 +4,16 @@ import { NavLink } from "react-router-dom";
 import "../../style/nav.scss";
 
 const NavLinks = () => {
+  const newPortfolioLink = () => {
+    return (
+      <div className="nav-link-wrapper">
+        <NavLink to="/portfolio/new" activeClassName="active-nav-link">
+          New Portfolio
+        </NavLink>
+      </div>
+    );
+  };
+
   return (
     <div className="nav-wrapper">
       <div className="left-side">
@@ -24,6 +34,8 @@ const NavLinks = () => {
             Blog
           </NavLink>
         </div>
+
+        {true ? newPortfolioLink() : null}
       </div>
 
       <div className="left-side">
