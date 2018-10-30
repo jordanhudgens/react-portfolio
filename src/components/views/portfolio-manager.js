@@ -4,9 +4,13 @@ import PortfolioForm from "../portfolio/portfolio-form";
 export default class PortfolioManager extends Component {
   render() {
     return (
-      <div>
-        PortfolioNew
-        <PortfolioForm />
+      <div className="portfolio-manager-wrapper">
+        <div className="left-column">
+          PortfolioNew
+          <PortfolioForm />
+        </div>
+
+        <div className="right-column">Right column</div>
       </div>
     );
   }

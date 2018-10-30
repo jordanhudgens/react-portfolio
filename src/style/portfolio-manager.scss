@@ -1,0 +1,13 @@
+.portfolio-manager-wrapper {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+
+  .left-column {
+    background-color: red;
+  }
+
+  .right-column {
+    background-color: blue;
+  }
+}
