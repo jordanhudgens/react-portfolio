@@ -29,7 +29,11 @@ export default class PortfolioSidebarList extends Component {
 
   render() {
     const portfolioList = this.state.portfolioItems.map(portfolioItem => {
-      return <div className="portfolio-item-thumb">{portfolioItem.name}</div>;
+      return (
+        <div className="portfolio-item-thumb" key={portfolioItem.id}>
+          {portfolioItem.name}
+        </div>
+      );
     });
 
     return (
