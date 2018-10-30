@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PortfolioForm from "../portfolio/portfolio-form";
+import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
 
 export default class PortfolioManager extends Component {
   render() {
@@ -10,7 +11,9 @@ export default class PortfolioManager extends Component {
           <PortfolioForm />
         </div>
 
-        <div className="right-column">Right column</div>
+        <div className="right-column">
+          <PortfolioSidebarList />
+        </div>
       </div>
     );
   }
