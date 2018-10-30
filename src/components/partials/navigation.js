@@ -36,7 +36,7 @@ const NavLinks = () => {
         </div>
 
         {true ? dynamicLink("/blogs/new", "New Blog") : null}
-        {true ? dynamicLink("/portfolio/new", "New Portfolio") : null}
+        {true ? dynamicLink("/portfolio-manager", "New Portfolio") : null}
       </div>
 
       <div className="left-side">

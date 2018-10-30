@@ -10,7 +10,7 @@ import {
 import Home from "./views/home";
 import About from "./views/about";
 import PortfolioDetail from "./views/portfolio-detail";
-import PortfolioNew from "./views/portfolio-new";
+import PortfolioManager from "./views/portfolio-manager";
 import Blog from "./views/blog";
 import BlogDetail from "./views/blog-detail";
 import NewBlog from "./views/new-blog";
@@ -29,7 +29,7 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/auth" component={Auth} />
-              <Route path="/portfolio/new" component={PortfolioNew} />
+              <Route path="/portfolio-manager" component={PortfolioManager} />
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
               <Route path="/blogs/new" component={NewBlog} />
               <Route path="/blogs" component={Blog} />
