@@ -1,0 +1,40 @@
+@mixin input-element {
+  input {
+    font-family: "Poppins", sans-serif;
+    color: $blue;
+    padding: 5px 0px;
+    width: 100%;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid $charcoal;
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
+    font-size: 1.1em;
+    margin-bottom: 21px;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $dark-teal;
+    }
+  }
+}
+
+@mixin base-btn {
+  color: $teal;
+  padding: 10px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+
+  &:hover {
+    box-shadow: 3px 3px 20px rgba(1, 1, 1, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $dark-teal;
+    background-color: $dark-teal;
+  }
+}

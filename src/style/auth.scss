@@ -1,7 +1,7 @@
 .auth-page-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  height: calc(100vh - 96px);
 
   .left-column {
     background-color: $charcoal;

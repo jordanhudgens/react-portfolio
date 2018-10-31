@@ -1,10 +1,5 @@
 .btn {
-  color: $teal;
-  padding: 10px 20px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: 2px solid transparent;
+  @include base-btn();
 
   &__white {
     background-color: white;

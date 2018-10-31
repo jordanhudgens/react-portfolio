@@ -92,7 +92,7 @@ export default class Login extends Component {
               </div>
 
               <div className="login-btn-wrapper">
-                <button className="btn" type="submit">
+                <button className="btn btn__lg" type="submit">
                   Login
                 </button>
               </div>

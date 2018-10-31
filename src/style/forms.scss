@@ -1,0 +1,15 @@
+.full-width-element {
+  width: 100%;
+  @include input-element();
+}
+
+.form-group {
+  .icon-wrapper {
+    margin-bottom: 19px;
+    color: $charcoal;
+  }
+
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+}
