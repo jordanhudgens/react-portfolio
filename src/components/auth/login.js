@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Login extends Component {
   constructor(props) {
@@ -30,7 +31,6 @@ export default class Login extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        console.log("response from login component", response);
         if (response.data.status === "created") {
           this.props.handleSuccessfulAuth(response.data);
         } else {
@@ -46,48 +46,55 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="project-cards-wrapper">
-        <div className="card auth-card">
-          <div className="metadata">
-            <div className="title">Login</div>
+      <div className="login-page-wrapper">
+        <div className="left-column">
+          <div className="quote-wrapper">{this.state.quoteText}</div>
+        </div>
 
-            <div className="small-green-line" />
-          </div>
+        <div className="right-column">
+          <div className="content-wrapper">
+            <div className="title">Login to access your dashboard</div>
 
-          <div className="auth-form">
+            <div className="login-errors">
+              {this.state.showErrorText ? errorDiv : ""}
+            </div>
+
             <form onSubmit={this.handleSubmit} className="form-wrapper">
-              <div className="input-elements">
-                <div className="form-element-group">
-                  <label htmlFor="login-email">Email</label>
+              <div className="form-group">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon="at" />
+                </div>
+                <div className="full-width-element">
                   <input
-                    type="email"
+                    className="full-width-element"
+                    type="text"
                     name="email"
-                    id="login-email"
                     placeholder="Email"
                     value={this.state.email}
                     onChange={this.handleChange}
-                    className="full-width-element"
-                  />
-                </div>
-
-                <div className="form-element-group">
-                  <label htmlFor="login-password">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="login-password"
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    className="full-width-element"
                   />
                 </div>
               </div>
 
-              <div className="form-buttons-wrapper">
-                <div className="link-btn btn-primary">
-                  <button type="submit">Login</button>
+              <div className="form-group">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon="key" />
                 </div>
+                <div className="full-width-element">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="login-btn-wrapper">
+                <button className="btn" type="submit">
+                  Login
+                </button>
               </div>
             </form>
           </div>
