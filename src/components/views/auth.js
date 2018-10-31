@@ -29,7 +29,7 @@ export default class Auth extends Component {
 
   render() {
     return (
-      <div className="home">
+      <div className="auth-page-wrapper">
         <div className="left-column">
           <div className="headline">Login</div>
         </div>

@@ -1,0 +1,61 @@
+.auth-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+
+  .left-column {
+    background-color: $charcoal;
+    font-family: "Cabin Sketch", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+
+    .quote-wrapper {
+      width: 500px;
+      color: $offwhite;
+    }
+  }
+
+  .right-column {
+    display: flex;
+    padding-left: 100px;
+    align-items: center;
+    grid-gap: 21px;
+    background-color: $offwhite;
+    color: $offwhite;
+
+    .content-wrapper {
+      width: 375px;
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 42px 0px;
+      }
+
+      .title {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.1em;
+        font-family: "Oswald", sans-serif;
+        margin-bottom: 21px;
+        color: $blue;
+      }
+
+      .login-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .login-errors {
+        color: $warning;
+        font-weight: 900;
+        height: 42px;
+      }
+    }
+  }
+}
