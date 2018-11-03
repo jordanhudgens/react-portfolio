@@ -22,7 +22,7 @@ export default class PortfolioForm extends Component {
   handleSubmit(event) {
     axios
       .post(
-        "https://jordan.devcamp.space/portfolio_items",
+        "https://jordan.devcamp.space/portfolio/portfolio_items",
         {
           portfolio_item: {
             name: this.state.name,
