@@ -38,3 +38,7 @@
     background-color: $dark-teal;
   }
 }
+
+@mixin base-grid {
+  display: grid;
+}
