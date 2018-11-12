@@ -7,8 +7,10 @@ export default class PortfolioForm extends Component {
     this.state = {
       name: "",
       description: "",
-      link: "",
-      thumb_image: ""
+      url: "",
+      thumb_image: "",
+      banner_image: "",
+      logo: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,10 +31,18 @@ export default class PortfolioForm extends Component {
 
     formData.append("portfolio_item[name]", this.state.name);
     formData.append("portfolio_item[description]", this.state.description);
-    formData.append("portfolio_item[link]", this.state.link);
+    formData.append("portfolio_item[url]", this.state.url);
 
     if (this.state.thumb_image) {
       formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
+    }
+
+    if (this.state.banner_image) {
+      formData.append("portfolio_item[banner_image]", this.state.banner_image);
+    }
+
+    if (this.state.logo) {
+      formData.append("portfolio_item[logo]", this.state.logo);
     }
 
     return formData;
@@ -84,15 +94,29 @@ export default class PortfolioForm extends Component {
 
           <input
             type="text"
-            name="link"
-            placeholder="Link"
-            value={this.state.link}
+            name="url"
+            placeholder="URL"
+            value={this.state.url}
             onChange={this.handleChange}
           />
 
           <input
             type="file"
             name="thumb_image"
+            onChange={this.handleChange}
+            multiple
+          />
+
+          <input
+            type="file"
+            name="banner_image"
+            onChange={this.handleChange}
+            multiple
+          />
+
+          <input
+            type="file"
+            name="logo"
             onChange={this.handleChange}
             multiple
           />
