@@ -1,7 +1,6 @@
 .portfolio-manager-wrapper {
-  width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 75% 25%;
 
   .left-column {
     background-color: red;
