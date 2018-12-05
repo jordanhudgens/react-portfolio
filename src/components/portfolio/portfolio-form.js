@@ -7,6 +7,7 @@ export default class PortfolioForm extends Component {
     this.state = {
       name: "",
       description: "",
+      category: "",
       url: "",
       thumb_image: "",
       banner_image: "",
@@ -32,6 +33,7 @@ export default class PortfolioForm extends Component {
     formData.append("portfolio_item[name]", this.state.name);
     formData.append("portfolio_item[description]", this.state.description);
     formData.append("portfolio_item[url]", this.state.url);
+    formData.append("portfolio_item[category]", this.state.category);
 
     if (this.state.thumb_image) {
       formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
@@ -72,11 +74,14 @@ export default class PortfolioForm extends Component {
     event.preventDefault();
   }
 
+  // TODO
+  // Build out styles for the portfolio form
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
-          <div className="two-column">
+          <div className="three-column">
             <input
               type="text"
               name="name"
@@ -90,6 +95,14 @@ export default class PortfolioForm extends Component {
               name="url"
               placeholder="URL"
               value={this.state.url}
+              onChange={this.handleChange}
+            />
+
+            <input
+              type="text"
+              name="category"
+              placeholder="Category"
+              value={this.state.category}
               onChange={this.handleChange}
             />
           </div>
