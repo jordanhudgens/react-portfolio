@@ -8,5 +8,13 @@
 
   .right-column {
     background-color: blue;
+
+    .portfolio-item-thumb {
+      padding: 21px;
+
+      .thumb-img img {
+        width: 100%;
+      }
+    }
   }
 }
