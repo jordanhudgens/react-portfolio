@@ -1,13 +1,1 @@
-// Tablets
-@media screen and (max-width: 1000px) {
-  .portfolio-items-wrapper {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-// Smartphones
-@media screen and (max-width: 525px) {
-  .portfolio-items-wrapper {
-    grid-template-columns: 1fr;
-  }
-}

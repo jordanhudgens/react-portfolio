@@ -8,6 +8,7 @@ export default class PortfolioForm extends Component {
       name: "",
       description: "",
       category: "",
+      position: "",
       url: "",
       thumb_image: "",
       banner_image: "",
@@ -79,74 +80,75 @@ export default class PortfolioForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
-          <div className="three-column">
-            <input
-              type="text"
-              name="name"
-              placeholder="Portfolio Item Name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+      <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
+        <div className="two-column">
+          <input
+            type="text"
+            name="name"
+            placeholder="Portfolio Item Name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
 
-            <input
-              type="text"
-              name="url"
-              placeholder="URL"
-              value={this.state.url}
-              onChange={this.handleChange}
-            />
+          <input
+            type="text"
+            name="url"
+            placeholder="URL"
+            value={this.state.url}
+            onChange={this.handleChange}
+          />
+        </div>
 
-            <select
-              name="category"
-              value={this.state.category}
-              onChange={this.handleChange}
-            >
-              <option value="eCommerce">eCommerce</option>
-              <option value="Scheduling">Scheduling</option>
-              <option value="Enterprise">Entperise</option>
-            </select>
-          </div>
+        <div className="two-column">
+          <input
+            type="text"
+            name="position"
+            placeholder="Position"
+            value={this.state.position}
+            onChange={this.handleChange}
+          />
 
-          <div className="one-column">
-            <input
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </div>
+          <select
+            name="category"
+            value={this.state.category}
+            onChange={this.handleChange}
+          >
+            <option value="eCommerce">eCommerce</option>
+            <option value="Scheduling">Scheduling</option>
+            <option value="Enterprise">Entperise</option>
+          </select>
+        </div>
 
-          <div className="three-column">
-            <input
-              type="file"
-              name="thumb_image"
-              onChange={this.handleChange}
-              multiple
-            />
+        <div className="one-column">
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={this.state.description}
+            onChange={this.handleChange}
+          />
+        </div>
 
-            <input
-              type="file"
-              name="banner_image"
-              onChange={this.handleChange}
-              multiple
-            />
+        <input
+          type="file"
+          name="thumb_image"
+          onChange={this.handleChange}
+          multiple
+        />
 
-            <input
-              type="file"
-              name="logo"
-              onChange={this.handleChange}
-              multiple
-            />
-          </div>
+        <input
+          type="file"
+          name="banner_image"
+          onChange={this.handleChange}
+          multiple
+        />
 
-          <div className="btn-wrapper">
-            <button type="submit">Save</button>
-          </div>
-        </form>
-      </div>
+        <input type="file" name="logo" onChange={this.handleChange} multiple />
+
+        <div className="btn-wrapper">
+          <button type="submit">Save</button>
+        </div>
+      </form>
     );
   }
 }
