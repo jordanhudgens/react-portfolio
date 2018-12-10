@@ -59,7 +59,7 @@ export default class PortfolioForm extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        this.props.handleFormSubmission(response.data);
+        this.props.handleFormSubmission(response.data.portfolio_item);
         // TODO
         // Render out portfolio and render in cool sidebar
         // if (response.data.status === "created") {

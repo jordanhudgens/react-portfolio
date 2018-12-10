@@ -16,6 +16,9 @@ export default class PortfolioManager extends Component {
 
   handleFormSubmission(portfolioItem) {
     console.log("submitted from child", portfolioItem);
+    this.setState({
+      portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+    });
   }
 
   componentDidMount() {
