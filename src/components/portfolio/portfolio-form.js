@@ -54,22 +54,15 @@ export default class PortfolioForm extends Component {
   handleSubmit(event) {
     axios
       .post(
-        "https://jordan.devcamp.space/portfolio/portfolio_items",
+        "https://jordan.devcamp.space/portfolio/portfolio_item",
         this.buildForm(),
         { withCredentials: true }
       )
       .then(response => {
         this.props.handleFormSubmission(response.data.portfolio_item);
-        // TODO
-        // Render out portfolio and render in cool sidebar
-        // if (response.data.status === "created") {
-        //   this.props.handleSuccessfulAuth(response.data);
-        // } else {
-        //   this.props.handleUnSuccessfulAuth(error);
-        // }
       })
       .catch(error => {
-        // this.props.handleUnSuccessfulAuth(error);
+        this.props.handleFormSubmissionError(error);
       });
 
     event.preventDefault();
