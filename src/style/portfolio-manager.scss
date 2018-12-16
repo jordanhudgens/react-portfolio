@@ -3,11 +3,25 @@
   grid-template-columns: 3fr 1fr;
 
   .left-column {
-    background-color: red;
+    background-color: $offwhite;
+
+    input {
+      background-color: transparent;
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+      border-bottom: 1px solid $teal;
+      font-size: 1rem;
+      padding-bottom: 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
   .right-column {
-    background-color: blue;
+    background-color: $charcoal;
 
     .portfolio-item-thumb {
       padding: 21px;

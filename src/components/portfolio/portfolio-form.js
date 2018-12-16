@@ -139,7 +139,9 @@ export default class PortfolioForm extends Component {
         <input type="file" name="logo" onChange={this.handleChange} multiple />
 
         <div className="btn-wrapper">
-          <button type="submit">Save</button>
+          <button className="btn" type="submit">
+            Save
+          </button>
         </div>
       </form>
     );

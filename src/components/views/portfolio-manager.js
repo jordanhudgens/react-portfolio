@@ -39,6 +39,7 @@ export default class PortfolioManager extends Component {
         }
       )
       .then(response => {
+        console.log("resp", response);
         this.setState({ portfolioItems: [...response.data.portfolio_items] });
       })
       .catch(error => {
@@ -50,7 +51,6 @@ export default class PortfolioManager extends Component {
     return (
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
-          PortfolioNew
           <PortfolioForm
             handleFormSubmission={this.handleFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
