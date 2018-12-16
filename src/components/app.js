@@ -25,6 +25,35 @@ import { faSignOutAlt, faAt, faKey } from "@fortawesome/free-solid-svg-icons";
 library.add(faSignOutAlt, faAt, faKey);
 
 export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedIn: "TRUE"
+    };
+
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+  }
+
+  handleSuccessfulLogin() {
+    // TODO
+    // this is firing on login and when passed as a prop to the auth component
+    // just need to redirect
+    // And then ensure we have a currentUser method
+    console.log("handleSuccessfulLogin");
+    this.setState({
+      loggedInStatus: "LOGGED_IN"
+    });
+    this.props.history.push("/");
+  }
+
+  handleUnsuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+
   render() {
     return (
       <div className="container">
@@ -34,7 +63,17 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/auth" component={Auth} />
+              <Route
+                path="/auth"
+                render={props => (
+                  <Auth
+                    {...props}
+                    loggedIn={this.state.loggedIn}
+                    handleSuccessfulLogin={this.handleSuccessfulLogin}
+                    handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                  />
+                )}
+              />
               <Route path="/portfolio-manager" component={PortfolioManager} />
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
               <Route path="/blogs/new" component={NewBlog} />

@@ -17,7 +17,7 @@ export default class Auth extends Component {
   }
 
   handleSuccessfulAuth(e) {
-    this.props.history.push("/");
+    this.props.handleSuccessfulLogin();
   }
 
   handleUnSuccessfulAuth(errorMessage) {
@@ -33,6 +33,8 @@ export default class Auth extends Component {
         <div className="left-column">
           <div className="headline">Login</div>
         </div>
+
+        <h2>asdfas {this.props.loggedIn}</h2>
 
         <div className="right-column">
           <Login

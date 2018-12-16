@@ -54,7 +54,7 @@ export default class PortfolioForm extends Component {
   handleSubmit(event) {
     axios
       .post(
-        "https://jordan.devcamp.space/portfolio/portfolio_item",
+        "https://jordan.devcamp.space/portfolio/portfolio_items",
         this.buildForm(),
         { withCredentials: true }
       )
@@ -67,9 +67,6 @@ export default class PortfolioForm extends Component {
 
     event.preventDefault();
   }
-
-  // TODO
-  // Build out styles for the portfolio form
 
   render() {
     return (
