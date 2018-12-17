@@ -6,6 +6,7 @@ import {
   NavLink,
   Link
 } from "react-router-dom";
+import axios from "axios";
 
 import Home from "./views/home";
 import About from "./views/about";
@@ -29,11 +30,13 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN",
+      loadingStatus: "LOADING"
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.checkLoginStatus = this.checkLoginStatus.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -48,7 +51,48 @@ export default class App extends Component {
     });
   }
 
+  checkLoginStatus() {
+    return axios
+      .get(`https://api.devcamp.space/logged_in`, { withCredentials: true })
+      .then(response => {
+        this.setState({
+          loadingStatus: "LOADED"
+        });
+        if (
+          response.data.logged_in &&
+          this.state.loggedInStatus === "LOGGED_IN"
+        ) {
+          return response.data;
+        } else if (
+          response.data.logged_in &&
+          this.state.loggedInStatus === "NOT_LOGGED_IN"
+        ) {
+          this.setState({
+            loggedInStatus: "LOGGED_IN"
+          });
+        } else if (
+          !response.data.logged_in &&
+          this.state.loggedInStatus === "LOGGED_IN"
+        ) {
+          this.setState({
+            loggedInStatus: "NOT_LOGGED_IN"
+          });
+        } else {
+          return response.data;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
+    this.checkLoginStatus();
+
+    if (this.state.loadingStatus === "LOADING") {
+      return <div>Loading...</div>;
+    }
+    console.log("updated in render", this.state.loggedInStatus);
     return (
       <div className="container">
         <Router>
