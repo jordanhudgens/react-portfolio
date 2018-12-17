@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../style/nav.scss";
@@ -13,6 +15,23 @@ const NavLinks = props => {
         </NavLink>
       </div>
     );
+  };
+
+  const handleSignOut = event => {
+    console.log("event", event);
+    axios
+      .delete(`https://api.devcamp.space/logout`, { withCredentials: true })
+      .then(response => {
+        if (response.status === 200) {
+          props.history.push("/");
+        }
+        return response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    event.preventDefault();
   };
 
   return (
@@ -46,10 +65,13 @@ const NavLinks = props => {
 
       <div className="right-side">
         <div className="brand">JORDAN HUDGENS</div>
-        <FontAwesomeIcon icon="sign-out-alt" />
+
+        <a onClick={e => handleSignOut(e)}>
+          <FontAwesomeIcon icon="sign-out-alt" />
+        </a>
       </div>
     </div>
   );
 };
 
-export default NavLinks;
+export default withRouter(NavLinks);
