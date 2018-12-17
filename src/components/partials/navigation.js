@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "../../style/nav.scss";
 
-const NavLinks = () => {
+const NavLinks = props => {
   const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
@@ -35,8 +35,12 @@ const NavLinks = () => {
           </NavLink>
         </div>
 
-        {true ? dynamicLink("/blogs/new", "New Blog") : null}
-        {true ? dynamicLink("/portfolio-manager", "New Portfolio") : null}
+        {props.loggedInStatus === "LOGGED_IN" ? (
+          dynamicLink("/blogs/new", "New Blog")
+        ) : null}
+        {props.loggedInStatus === "LOGGED_IN" ? (
+          dynamicLink("/portfolio-manager", "New Portfolio")
+        ) : null}
       </div>
 
       <div className="left-side">

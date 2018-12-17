@@ -53,7 +53,7 @@ export default class App extends Component {
       <div className="container">
         <Router>
           <div>
-            <NavLinks />
+            <NavLinks loggedInStatus={this.state.loggedInStatus} />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
@@ -62,7 +62,6 @@ export default class App extends Component {
                 render={props => (
                   <Auth
                     {...props}
-                    loggedIn={this.state.loggedIn}
                     handleSuccessfulLogin={this.handleSuccessfulLogin}
                     handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
                   />
