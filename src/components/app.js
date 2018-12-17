@@ -25,11 +25,11 @@ import { faSignOutAlt, faAt, faKey } from "@fortawesome/free-solid-svg-icons";
 library.add(faSignOutAlt, faAt, faKey);
 
 export default class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      loggedIn: "TRUE"
+      loggedInStatus: "NOT_LOGGED_IN"
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
@@ -37,15 +37,9 @@ export default class App extends Component {
   }
 
   handleSuccessfulLogin() {
-    // TODO
-    // this is firing on login and when passed as a prop to the auth component
-    // just need to redirect
-    // And then ensure we have a currentUser method
-    console.log("handleSuccessfulLogin");
     this.setState({
       loggedInStatus: "LOGGED_IN"
     });
-    this.props.history.push("/");
   }
 
   handleUnsuccessfulLogin() {
