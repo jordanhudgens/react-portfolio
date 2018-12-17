@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../style/nav.scss";
 
@@ -43,8 +44,9 @@ const NavLinks = props => {
         ) : null}
       </div>
 
-      <div className="left-side">
+      <div className="right-side">
         <div className="brand">JORDAN HUDGENS</div>
+        <FontAwesomeIcon icon="sign-out-alt" />
       </div>
     </div>
   );
