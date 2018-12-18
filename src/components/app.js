@@ -89,8 +89,8 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route path="/portfolio-manager" component={PortfolioManager} />,
-      <Route path="/blogs/new" component={NewBlog} />
+      <Route key="1" path="/portfolio-manager" component={PortfolioManager} />,
+      <Route key="2" path="/blogs/new" component={NewBlog} />
     ];
   }
 
