@@ -102,6 +102,7 @@ export default class PortfolioForm extends Component {
             name="category"
             value={this.state.category}
             onChange={this.handleChange}
+            className="selectElement"
           >
             <option value="eCommerce">eCommerce</option>
             <option value="Scheduling">Scheduling</option>
@@ -110,8 +111,7 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="one-column">
-          <input
-            type="text"
+          <textarea
             name="description"
             placeholder="Description"
             value={this.state.description}

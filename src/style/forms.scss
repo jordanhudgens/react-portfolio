@@ -22,3 +22,20 @@
 
   @include base-input();
 }
+
+.selectElement {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: transparent;
+  outline: none;
+  font-size: 0.8rem;
+}
+
+textarea {
+  background-color: transparent;
+  font-size: 1rem;
+  height: 100px;
+  border: 1px solid $teal;
+}
