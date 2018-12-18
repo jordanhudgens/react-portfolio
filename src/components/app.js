@@ -30,13 +30,13 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN",
-      loadingStatus: "LOADING"
+      loggedInStatus: "NOT_LOGGED_IN"
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
     this.checkLoginStatus = this.checkLoginStatus.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -51,13 +51,16 @@ export default class App extends Component {
     });
   }
 
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+
   checkLoginStatus() {
     return axios
       .get(`https://api.devcamp.space/logged_in`, { withCredentials: true })
       .then(response => {
-        this.setState({
-          loadingStatus: "LOADED"
-        });
         if (
           response.data.logged_in &&
           this.state.loggedInStatus === "LOGGED_IN"
@@ -77,8 +80,6 @@ export default class App extends Component {
           this.setState({
             loggedInStatus: "NOT_LOGGED_IN"
           });
-        } else {
-          return response.data;
         }
       })
       .catch(error => {
@@ -89,15 +90,14 @@ export default class App extends Component {
   render() {
     this.checkLoginStatus();
 
-    if (this.state.loadingStatus === "LOADING") {
-      return <div>Loading...</div>;
-    }
-    console.log("updated in render", this.state.loggedInStatus);
     return (
       <div className="container">
         <Router>
           <div>
-            <NavLinks loggedInStatus={this.state.loggedInStatus} />
+            <NavLinks
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />

@@ -35,8 +35,6 @@ export default class Auth extends Component {
           <div className="headline">Login</div>
         </div>
 
-        <h2>asdfas {this.props.loggedIn}</h2>
-
         <div className="right-column">
           <Login
             handleSuccessfulAuth={this.handleSuccessfulAuth}
