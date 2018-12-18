@@ -4,8 +4,6 @@ import { withRouter } from "react-router";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "../../style/nav.scss";
-
 const NavLinks = props => {
   const dynamicLink = (route, linkText) => {
     return (
@@ -68,7 +66,9 @@ const NavLinks = props => {
         <div className="brand">JORDAN HUDGENS</div>
 
         <a onClick={e => handleSignOut(e)}>
-          <FontAwesomeIcon icon="sign-out-alt" />
+          {props.loggedInStatus === "LOGGED_IN" ? (
+            <FontAwesomeIcon icon="sign-out-alt" />
+          ) : null}
         </a>
       </div>
     </div>

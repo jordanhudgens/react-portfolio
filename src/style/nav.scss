@@ -2,10 +2,25 @@
   display: flex;
   justify-content: space-between;
   padding: 38px;
-}
 
-.left-side {
-  display: flex;
+  .left-side {
+    display: flex;
+  }
+
+  .right-side {
+    display: flex;
+
+    a {
+      margin-left: 15px;
+      color: $teal;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        color: $dark-teal;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .nav-wrapper > .left-side > div {
