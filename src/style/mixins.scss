@@ -25,11 +25,11 @@
   padding: 10px 20px;
   border-radius: 2px;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.5s;
   border: 2px solid transparent;
 
   &:hover {
-    box-shadow: 3px 3px 20px rgba(1, 1, 1, 0.5);
+    box-shadow: 1px 1px 7px rgba(1, 1, 1, 0.3);
   }
 
   &:focus {
