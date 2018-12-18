@@ -87,6 +87,13 @@ export default class App extends Component {
       });
   }
 
+  authorizedPages() {
+    return [
+      <Route path="/portfolio-manager" component={PortfolioManager} />,
+      <Route path="/blogs/new" component={NewBlog} />
+    ];
+  }
+
   render() {
     this.checkLoginStatus();
 
@@ -111,11 +118,12 @@ export default class App extends Component {
                   />
                 )}
               />
-              <Route path="/portfolio-manager" component={PortfolioManager} />
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
-              <Route path="/blogs/new" component={NewBlog} />
               <Route path="/blogs" component={Blog} />
               <Route path="/blog/:slug" component={BlogDetail} />
+              {this.state.loggedInStatus === "LOGGED_IN" ? (
+                this.authorizedPages()
+              ) : null}
               <Route component={NoMatch} />
             </Switch>
           </div>
