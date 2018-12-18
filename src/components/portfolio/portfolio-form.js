@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import classNames from "classnames";
+import Dropzone from "react-dropzone";
 
 export default class PortfolioForm extends Component {
   constructor(props) {
@@ -18,6 +20,7 @@ export default class PortfolioForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.buildForm = this.buildForm.bind(this);
+    this.onDrop = this.onDrop.bind(this);
   }
 
   handleChange(event) {
@@ -66,6 +69,14 @@ export default class PortfolioForm extends Component {
       });
 
     event.preventDefault();
+  }
+
+  onDrop(acceptedFiles, rejectedFiles) {
+    console.log("acceptedFiles", acceptedFiles[0]);
+    this.setState({
+      logo: acceptedFiles[0]
+    });
+    console.log("rejectedFiles", rejectedFiles);
   }
 
   render() {
@@ -134,6 +145,35 @@ export default class PortfolioForm extends Component {
         />
 
         <input type="file" name="logo" onChange={this.handleChange} multiple />
+
+        <hr />
+
+        <Dropzone onDrop={this.onDrop}>
+          {({ getRootProps, getInputProps, isDragActive }) => {
+            return (
+              <div
+                {...getRootProps()}
+                className={classNames("dropzone", {
+                  "dropzone--isActive": isDragActive
+                })}
+              >
+                <input {...getInputProps()} />
+                {isDragActive ? (
+                  <p>Drop files here...</p>
+                ) : (
+                  <p>
+                    Try dropping some files here, or click to select files to
+                    upload.
+                  </p>
+                )}
+              </div>
+            );
+          }}
+        </Dropzone>
+
+        <h2>Logo: {this.state.logo.name}</h2>
+
+        <hr />
 
         <div className="btn-wrapper">
           <button className="btn" type="submit">
