@@ -22,6 +22,9 @@ export default class PortfolioForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.buildForm = this.buildForm.bind(this);
+    this.componentConfig = this.componentConfig.bind(this);
+    this.djsConfig = this.djsConfig.bind(this);
+    this.eventHandlers = this.eventHandlers.bind(this);
   }
 
   handleChange(event) {
@@ -72,20 +75,31 @@ export default class PortfolioForm extends Component {
     event.preventDefault();
   }
 
-  render() {
-    const componentConfig = {
+  componentConfig() {
+    return {
       iconFiletypes: [".jpg", ".png"],
       showFiletypeIcon: true,
       postUrl: "https://httpbin.org/post"
     };
-    const djsConfig = {
-      autoProcessQueue: false,
-      addRemoveLinks: true
-    };
-    const eventHandlers = {
-      addedfile: file => console.log(file)
-    };
+  }
 
+  djsConfig() {
+    return {
+      autoProcessQueue: false,
+      addRemoveLinks: true,
+      maxFiles: 1
+    };
+  }
+
+  eventHandlers() {
+    return {
+      addedfile: file => {
+        console.log(file);
+      }
+    };
+  }
+
+  render() {
     return (
       <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
         <div className="two-column">
@@ -153,9 +167,19 @@ export default class PortfolioForm extends Component {
         <input type="file" name="logo" onChange={this.handleChange} multiple />
 
         <DropzoneComponent
-          config={componentConfig}
-          eventHandlers={eventHandlers}
-          djsConfig={djsConfig}
+          config={this.componentConfig()}
+          eventHandlers={this.eventHandlers()}
+          djsConfig={this.djsConfig()}
+        />
+        <DropzoneComponent
+          config={this.componentConfig()}
+          eventHandlers={this.eventHandlers()}
+          djsConfig={this.djsConfig()}
+        />
+        <DropzoneComponent
+          config={this.componentConfig()}
+          eventHandlers={this.eventHandlers()}
+          djsConfig={this.djsConfig()}
         />
 
         <div className="btn-wrapper">
