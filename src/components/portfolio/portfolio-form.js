@@ -24,7 +24,9 @@ export default class PortfolioForm extends Component {
     this.buildForm = this.buildForm.bind(this);
     this.componentConfig = this.componentConfig.bind(this);
     this.djsConfig = this.djsConfig.bind(this);
-    this.eventHandlers = this.eventHandlers.bind(this);
+    this.handleLogoDrop = this.handleLogoDrop.bind(this);
+    this.handleBannerDrop = this.handleBannerDrop.bind(this);
+    this.handleThumbDrop = this.handleThumbDrop.bind(this);
   }
 
   handleChange(event) {
@@ -86,19 +88,25 @@ export default class PortfolioForm extends Component {
   djsConfig() {
     return {
       addRemoveLinks: true,
-      maxFiles: 1,
-      autoProcessQueue: false
+      maxFiles: 1
     };
   }
 
-  eventHandlers() {
+  handleLogoDrop() {
     return {
-      addedfile: file => {
-        console.log(file);
-        this.setState({
-          thumb_image: file
-        });
-      }
+      addedfile: file => this.setState({ logo: file })
+    };
+  }
+
+  handleBannerDrop() {
+    return {
+      addedfile: file => this.setState({ banner_image: file })
+    };
+  }
+
+  handleThumbDrop() {
+    return {
+      addedfile: file => this.setState({ thumb_image: file })
     };
   }
 
@@ -156,7 +164,7 @@ export default class PortfolioForm extends Component {
         <div className="image-uploaders">
           <DropzoneComponent
             config={this.componentConfig()}
-            eventHandlers={this.eventHandlers()}
+            eventHandlers={this.handleThumbDrop()}
             djsConfig={this.djsConfig()}
           >
             <div className="dz-message">Thumbnail</div>
@@ -164,7 +172,7 @@ export default class PortfolioForm extends Component {
 
           <DropzoneComponent
             config={this.componentConfig()}
-            eventHandlers={this.eventHandlers()}
+            eventHandlers={this.handleBannerDrop()}
             djsConfig={this.djsConfig()}
           >
             <div className="dz-message">Banner</div>
@@ -172,7 +180,7 @@ export default class PortfolioForm extends Component {
 
           <DropzoneComponent
             config={this.componentConfig()}
-            eventHandlers={this.eventHandlers()}
+            eventHandlers={this.handleLogoDrop()}
             djsConfig={this.djsConfig()}
           >
             <div className="dz-message">Logo</div>
