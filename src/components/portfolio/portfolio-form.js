@@ -69,6 +69,17 @@ export default class PortfolioForm extends Component {
       )
       .then(response => {
         this.props.handleFormSubmission(response.data.portfolio_item);
+
+        this.setState({
+          name: "",
+          description: "",
+          category: "",
+          position: "",
+          url: "",
+          thumb_image: "",
+          banner_image: "",
+          logo: ""
+        });
       })
       .catch(error => {
         this.props.handleFormSubmissionError(error);
