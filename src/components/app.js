@@ -94,9 +94,11 @@ export default class App extends Component {
     ];
   }
 
-  render() {
+  componentDidMount() {
     this.checkLoginStatus();
+  }
 
+  render() {
     return (
       <div className="container">
         <Router>

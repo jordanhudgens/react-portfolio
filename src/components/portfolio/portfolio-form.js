@@ -149,6 +149,7 @@ export default class PortfolioForm extends Component {
             <option value="eCommerce">eCommerce</option>
             <option value="Scheduling">Scheduling</option>
             <option value="Enterprise">Entperise</option>
+            <option value="Social Media">Social Media</option>
           </select>
         </div>
 
