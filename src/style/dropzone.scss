@@ -5,3 +5,17 @@
 .dropzone .dz-preview.dz-image-preview {
   background: transparent;
 }
+
+.dropzone .dz-preview .dz-remove {
+  text-decoration: none;
+  color: $teal;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 10px;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    color: $dark-teal;
+    text-decoration: none;
+  }
+}
