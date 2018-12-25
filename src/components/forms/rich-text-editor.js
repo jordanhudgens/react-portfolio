@@ -18,14 +18,11 @@ class RichTextEditor extends Component {
   }
 
   onEditorStateChange(editorState) {
-    // TODO
-    // add handleChange so that the rich text editor adds the content
     this.setState(
       {
         editorState
       },
-      console.log(
-        "changing editor state",
+      this.props.handleRichTextEditorChange(
         draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
       )
     );

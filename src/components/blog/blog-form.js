@@ -24,16 +24,24 @@ export default class BlogForm extends Component {
     this.componentConfig = this.componentConfig.bind(this);
     this.djsConfig = this.djsConfig.bind(this);
     this.handleFeaturedImageDrop = this.handleFeaturedImageDrop.bind(this);
+    this.handleRichTextEditorChange = this.handleRichTextEditorChange.bind(
+      this
+    );
 
     this.featuredImageRef = React.createRef();
   }
 
   handleChange(event) {
+    console.log("handlechange", event);
     if (event.target.files) {
       this.setState({ [event.target.name]: event.target.files[0] });
     } else {
       this.setState({ [event.target.name]: event.target.value });
     }
+  }
+
+  handleRichTextEditorChange(content) {
+    this.setState({ content });
   }
 
   buildForm() {
@@ -128,7 +136,9 @@ export default class BlogForm extends Component {
         </div>
 
         <div className="one-column">
-          <RichTextEditor handleChange={this.handleChange} />
+          <RichTextEditor
+            handleRichTextEditorChange={this.handleRichTextEditorChange}
+          />
         </div>
 
         <div className="image-uploaders">
