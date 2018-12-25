@@ -42,7 +42,7 @@ export default class BlogForm extends Component {
 
     if (this.state.featured_image) {
       formData.append(
-        "portfolio_item[featured_image]",
+        "portfolio_blog[featured_image]",
         this.state.featured_image
       );
     }
