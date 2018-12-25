@@ -13,12 +13,31 @@ class RichTextEditor extends Component {
     };
 
     this.onEditorStateChange = this.onEditorStateChange.bind(this);
+    this.uploadFile = this.uploadFile.bind(this);
+    this.getFileBase64 = this.getFileBase64.bind(this);
   }
 
   onEditorStateChange(editorState) {
     this.setState({
       editorState
     });
+  }
+
+  getFileBase64(file, callback) {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    // Since FileReader is asynchronous,
+    // we need to pass data back.
+    reader.onload = () => callback(reader.result);
+    // TODO: catch an error
+    reader.onerror = error => {};
+  }
+
+  uploadFile(file) {
+    console.log("here's the file!");
+    return new Promise((resolve, reject) =>
+      this.getFileBase64(file, data => resolve({ data: { link: data } }))
+    );
   }
 
   render() {
@@ -30,10 +49,19 @@ class RichTextEditor extends Component {
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
           onEditorStateChange={this.onEditorStateChange}
-        />
-        <textarea
-          disabled
-          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+          toolbar={{
+            inline: { inDropdown: true },
+            list: { inDropdown: true },
+            textAlign: { inDropdown: true },
+            link: { inDropdown: true },
+            history: { inDropdown: true },
+            image: {
+              uploadCallback: this.uploadFile,
+              alt: { present: true, mandatory: false },
+              previewImage: true,
+              inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg"
+            }
+          }}
         />
       </div>
     );
