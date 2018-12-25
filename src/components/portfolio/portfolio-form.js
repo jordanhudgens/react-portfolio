@@ -97,9 +97,11 @@ export default class PortfolioForm extends Component {
   }
 
   // TODO
+  // Edit portfolio items
   // Delete images from server
   // https://github.com/felixrieseberg/React-Dropzone-Component/issues/24
   // Edit images
+
   componentConfig() {
     return {
       iconFiletypes: [".jpg", ".png"],

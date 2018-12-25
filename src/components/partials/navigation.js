@@ -16,7 +16,6 @@ const NavLinks = props => {
   };
 
   const handleSignOut = event => {
-    console.log("event", event);
     axios
       .delete(`https://api.devcamp.space/logout`, { withCredentials: true })
       .then(response => {
@@ -55,10 +54,10 @@ const NavLinks = props => {
         </div>
 
         {props.loggedInStatus === "LOGGED_IN" ? (
-          dynamicLink("/blogs/new", "New Blog")
+          dynamicLink("/blogs/new", "Blog Manager")
         ) : null}
         {props.loggedInStatus === "LOGGED_IN" ? (
-          dynamicLink("/portfolio-manager", "New Portfolio")
+          dynamicLink("/portfolio-manager", "Portfolio Manager")
         ) : null}
       </div>
 
