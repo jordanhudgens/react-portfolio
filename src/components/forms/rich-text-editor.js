@@ -18,9 +18,17 @@ class RichTextEditor extends Component {
   }
 
   onEditorStateChange(editorState) {
-    this.setState({
-      editorState
-    });
+    // TODO
+    // add handleChange so that the rich text editor adds the content
+    this.setState(
+      {
+        editorState
+      },
+      console.log(
+        "changing editor state",
+        draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+      )
+    );
   }
 
   getFileBase64(file, callback) {
@@ -29,12 +37,10 @@ class RichTextEditor extends Component {
     // Since FileReader is asynchronous,
     // we need to pass data back.
     reader.onload = () => callback(reader.result);
-    // TODO: catch an error
     reader.onerror = error => {};
   }
 
   uploadFile(file) {
-    console.log("here's the file!");
     return new Promise((resolve, reject) =>
       this.getFileBase64(file, data => resolve({ data: { link: data } }))
     );

@@ -128,7 +128,7 @@ export default class BlogForm extends Component {
         </div>
 
         <div className="one-column">
-          <RichTextEditor />
+          <RichTextEditor handleChange={this.handleChange} />
         </div>
 
         <div className="image-uploaders">
