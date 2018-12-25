@@ -27,6 +27,10 @@ export default class PortfolioForm extends Component {
     this.handleLogoDrop = this.handleLogoDrop.bind(this);
     this.handleBannerDrop = this.handleBannerDrop.bind(this);
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
+
+    this.thumbRef = React.createRef();
+    this.bannerRef = React.createRef();
+    this.logoRef = React.createRef();
   }
 
   handleChange(event) {
@@ -80,6 +84,10 @@ export default class PortfolioForm extends Component {
           banner_image: "",
           logo: ""
         });
+
+        [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
+          ref.current.dropzone.removeAllFiles();
+        });
       })
       .catch(error => {
         this.props.handleFormSubmissionError(error);
@@ -88,6 +96,10 @@ export default class PortfolioForm extends Component {
     event.preventDefault();
   }
 
+  // TODO
+  // Delete images from server
+  // https://github.com/felixrieseberg/React-Dropzone-Component/issues/24
+  // Edit images
   componentConfig() {
     return {
       iconFiletypes: [".jpg", ".png"],
@@ -118,6 +130,12 @@ export default class PortfolioForm extends Component {
   handleThumbDrop() {
     return {
       addedfile: file => this.setState({ thumb_image: file })
+    };
+  }
+
+  handleDZReset() {
+    return {
+      reset: true
     };
   }
 
@@ -176,6 +194,7 @@ export default class PortfolioForm extends Component {
 
         <div className="image-uploaders">
           <DropzoneComponent
+            ref={this.thumbRef}
             config={this.componentConfig()}
             eventHandlers={this.handleThumbDrop()}
             djsConfig={this.djsConfig()}
@@ -184,6 +203,7 @@ export default class PortfolioForm extends Component {
           </DropzoneComponent>
 
           <DropzoneComponent
+            ref={this.bannerRef}
             config={this.componentConfig()}
             eventHandlers={this.handleBannerDrop()}
             djsConfig={this.djsConfig()}
@@ -192,6 +212,7 @@ export default class PortfolioForm extends Component {
           </DropzoneComponent>
 
           <DropzoneComponent
+            ref={this.logoRef}
             config={this.componentConfig()}
             eventHandlers={this.handleLogoDrop()}
             djsConfig={this.djsConfig()}
