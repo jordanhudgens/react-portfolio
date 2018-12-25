@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DropzoneComponent from "react-dropzone-component";
+import { EditorState } from "draft-js";
 
 import RichTextEditor from "../forms/rich-text-editor";
 
@@ -29,6 +30,7 @@ export default class BlogForm extends Component {
     );
 
     this.featuredImageRef = React.createRef();
+    this.richTextRef = React.createRef();
   }
 
   handleChange(event) {
@@ -79,6 +81,9 @@ export default class BlogForm extends Component {
         });
 
         this.featuredImageRef.current.dropzone.removeAllFiles();
+        this.richTextRef.current.setState({
+          editorState: EditorState.createEmpty()
+        });
       })
       .catch(error => {
         this.props.handleFormSubmissionError(error);
@@ -137,6 +142,7 @@ export default class BlogForm extends Component {
 
         <div className="one-column">
           <RichTextEditor
+            ref={this.richTextRef}
             handleRichTextEditorChange={this.handleRichTextEditorChange}
           />
         </div>
