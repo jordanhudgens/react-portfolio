@@ -29,7 +29,7 @@ export default class BlogManager extends Component {
     this.getBlogItems();
   }
 
-  getPortfolioItems() {
+  getBlogItems() {
     axios
       .get("https://jordan.devcamp.space/portfolio/portfolio_blogs", {
         withCredentials: true

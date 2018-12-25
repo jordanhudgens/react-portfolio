@@ -54,7 +54,7 @@ const NavLinks = props => {
         </div>
 
         {props.loggedInStatus === "LOGGED_IN" ? (
-          dynamicLink("/blogs/new", "Blog Manager")
+          dynamicLink("/blog-manager", "Blog Manager")
         ) : null}
         {props.loggedInStatus === "LOGGED_IN" ? (
           dynamicLink("/portfolio-manager", "Portfolio Manager")
