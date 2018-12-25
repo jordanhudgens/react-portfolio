@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PortfolioForm from "../portfolio/portfolio-form";
-import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
+import BlogForm from "../blog/blog-form";
+import BlogSidebarList from "../blog/blog-sidebar-list";
 
-export default class PortfolioManager extends Component {
+export default class BlogManager extends Component {
   constructor() {
     super();
 
     this.state = {
-      portfolioItems: []
+      blogItems: []
     };
 
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
   }
 
-  handleFormSubmission(portfolioItem) {
+  handleFormSubmission(blog) {
     this.setState({
-      portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+      blogItems: [blog].concat(this.state.blogItems)
     });
   }
 
@@ -26,19 +26,16 @@ export default class PortfolioManager extends Component {
   }
 
   componentDidMount() {
-    this.getPortfolioItems();
+    this.getBlogItems();
   }
 
   getPortfolioItems() {
     axios
-      .get(
-        "https://jordan.devcamp.space/portfolio/portfolio_items?order_by=position&direction=desc",
-        {
-          withCredentials: true
-        }
-      )
+      .get("https://jordan.devcamp.space/portfolio/portfolio_blogs", {
+        withCredentials: true
+      })
       .then(response => {
-        this.setState({ portfolioItems: [...response.data.portfolio_items] });
+        this.setState({ blogItems: [...response.data.portfolio_blogs] });
       })
       .catch(error => {
         console.log(error);
@@ -49,14 +46,14 @@ export default class PortfolioManager extends Component {
     return (
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
-          <PortfolioForm
+          <BlogForm
             handleFormSubmission={this.handleFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
           />
         </div>
 
         <div className="right-column">
-          <PortfolioSidebarList data={this.state.portfolioItems} />
+          <BlogSidebarList data={this.state.blogItems} />
         </div>
       </div>
     );

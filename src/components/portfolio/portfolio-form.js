@@ -135,12 +135,6 @@ export default class PortfolioForm extends Component {
     };
   }
 
-  handleDZReset() {
-    return {
-      reset: true
-    };
-  }
-
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
