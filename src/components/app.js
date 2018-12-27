@@ -8,9 +8,6 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 
-import "../../node_modules/dropzone/dist/min/dropzone.min.css";
-import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-
 import Home from "./views/home";
 import About from "./views/about";
 import PortfolioDetail from "./views/portfolio-detail";
