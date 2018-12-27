@@ -11,7 +11,7 @@ export default class PortfolioForm extends Component {
     this.state = {
       name: "",
       description: "",
-      category: "",
+      category: "eCommerce",
       position: "",
       url: "",
       thumb_image: "",
@@ -34,6 +34,7 @@ export default class PortfolioForm extends Component {
   }
 
   handleChange(event) {
+    console.log("event details...", event.target.name, event.target.value);
     if (event.target.files) {
       this.setState({ [event.target.name]: event.target.files[0] });
     } else {
@@ -48,6 +49,7 @@ export default class PortfolioForm extends Component {
     formData.append("portfolio_item[description]", this.state.description);
     formData.append("portfolio_item[url]", this.state.url);
     formData.append("portfolio_item[category]", this.state.category);
+    formData.append("portfolio_item[position]", this.state.position);
 
     if (this.state.thumb_image) {
       formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
