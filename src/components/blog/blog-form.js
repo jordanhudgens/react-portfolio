@@ -5,10 +5,6 @@ import { EditorState } from "draft-js";
 
 import RichTextEditor from "../forms/rich-text-editor";
 
-import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
-import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-
 export default class BlogForm extends Component {
   constructor(props) {
     super(props);
