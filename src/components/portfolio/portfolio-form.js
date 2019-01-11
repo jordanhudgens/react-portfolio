@@ -160,7 +160,6 @@ export default class PortfolioForm extends Component {
       this.props.clearPortfolioToEdit();
 
       // TODO
-      // Build an editMode state and switch the action for the form submission process
       // Pull in the images and allow for edits
 
       this.setState({
