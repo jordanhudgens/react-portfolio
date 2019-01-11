@@ -8,7 +8,8 @@ export default class PortfolioManager extends Component {
     super();
 
     this.state = {
-      portfolioItems: []
+      portfolioItems: [],
+      portfolioToEdit: {}
     };
 
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -52,6 +53,7 @@ export default class PortfolioManager extends Component {
           <PortfolioForm
             handleFormSubmission={this.handleFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
+            portfolioToEdit={this.state.portfolioToEdit}
           />
         </div>
 

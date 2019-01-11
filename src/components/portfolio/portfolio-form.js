@@ -97,12 +97,6 @@ export default class PortfolioForm extends Component {
     event.preventDefault();
   }
 
-  // TODO
-  // Edit portfolio items
-  // Delete images from server
-  // https://github.com/felixrieseberg/React-Dropzone-Component/issues/24
-  // Edit images
-
   componentConfig() {
     return {
       iconFiletypes: [".jpg", ".png"],
@@ -134,6 +128,10 @@ export default class PortfolioForm extends Component {
     return {
       addedfile: file => this.setState({ thumb_image: file })
     };
+  }
+
+  componentDidMount() {
+    console.log("portfolio to edit", this.props.portfolioToEdit);
   }
 
   render() {
