@@ -1,22 +1,29 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Banner from "../partials/banner";
-
-import portfolioItemData from "../../data/portfolio-items.json";
 
 export default class PortfolioDetail extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { portfolioItem: null };
+    this.state = { portfolioItem: {} };
   }
-  componentWillMount() {
-    const data = portfolioItemData.portfolioItems;
-    const portfolioItem = data.find(el => {
-      return String(el.id) === this.props.match.params.slug;
-    });
 
-    this.setState({ portfolioItem });
+  componentDidMount() {
+    this.getPortfolioItem(this.props.match.params.slug);
+  }
+
+  getPortfolioItem(id) {
+    axios
+      .get(`https://jordan.devcamp.space/portfolio/portfolio_items/${id}`)
+      .then(response => {
+        console.log("response from get", response);
+        this.setState({ portfolioItem: response.data.portfolio_item });
+      })
+      .catch(error => {
+        console.log("error from get portfolio item", error);
+      });
   }
 
   render() {

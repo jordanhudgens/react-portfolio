@@ -150,19 +150,18 @@ export default class PortfolioForm extends Component {
       this.props.clearPortfolioToEdit();
 
       // TODO
-      // Look into controlled warning
       // Build an editMode state and switch the action for the form submission process
       // Pull in the images and allow for edits
 
       this.setState({
-        name: name,
-        description: description,
-        category: category,
-        position: position,
-        url: url,
-        thumb_image: thumb_image,
-        banner_image: banner_image,
-        logo: logo
+        name: name || "",
+        description: description || "",
+        category: category || "",
+        position: position || "",
+        url: url || "",
+        thumb_image: thumb_image || "",
+        banner_image: banner_image || "",
+        logo: logo || ""
       });
     }
   }
