@@ -131,7 +131,40 @@ export default class PortfolioForm extends Component {
   }
 
   componentDidMount() {
-    console.log("portfolio to edit", this.props.portfolioToEdit);
+    console.log("componentDidMount", this.props.portfolioToEdit);
+  }
+
+  componentDidUpdate() {
+    if (Object.keys(this.props.portfolioToEdit).length > 0) {
+      const {
+        name,
+        description,
+        category,
+        position,
+        url,
+        thumb_image,
+        banner_image,
+        logo
+      } = this.props.portfolioToEdit;
+
+      this.props.clearPortfolioToEdit();
+
+      // TODO
+      // Look into controlled warning
+      // Build an editMode state and switch the action for the form submission process
+      // Pull in the images and allow for edits
+
+      this.setState({
+        name: name,
+        description: description,
+        category: category,
+        position: position,
+        url: url,
+        thumb_image: thumb_image,
+        banner_image: banner_image,
+        logo: logo
+      });
+    }
   }
 
   render() {

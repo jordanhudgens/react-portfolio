@@ -15,10 +15,19 @@ export default class PortfolioManager extends Component {
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
   }
 
   handleEditClick(portfolioItem) {
-    console.log("portfolio to edit from manager", portfolioItem);
+    this.setState({
+      portfolioToEdit: portfolioItem
+    });
+  }
+
+  clearPortfolioToEdit() {
+    this.setState({
+      portfolioToEdit: {}
+    });
   }
 
   handleFormSubmission(portfolioItem) {
@@ -59,6 +68,7 @@ export default class PortfolioManager extends Component {
             handleFormSubmission={this.handleFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
             portfolioToEdit={this.state.portfolioToEdit}
+            clearPortfolioToEdit={this.clearPortfolioToEdit}
           />
         </div>
 
