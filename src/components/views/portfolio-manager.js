@@ -14,6 +14,11 @@ export default class PortfolioManager extends Component {
 
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+  }
+
+  handleEditClick(portfolioItem) {
+    console.log("portfolio to edit from manager", portfolioItem);
   }
 
   handleFormSubmission(portfolioItem) {
@@ -58,7 +63,10 @@ export default class PortfolioManager extends Component {
         </div>
 
         <div className="right-column">
-          <PortfolioSidebarList data={this.state.portfolioItems} />
+          <PortfolioSidebarList
+            handleEditClick={this.handleEditClick}
+            data={this.state.portfolioItems}
+          />
         </div>
       </div>
     );

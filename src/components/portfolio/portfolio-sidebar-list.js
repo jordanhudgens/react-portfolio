@@ -19,6 +19,8 @@ export default function(props) {
         <h2>{portfolioItem.id}</h2>
 
         <div className="title">{portfolioItem.name}</div>
+
+        <a onClick={() => props.handleEditClick(portfolioItem)}>Edit Me</a>
       </div>
     );
   });
