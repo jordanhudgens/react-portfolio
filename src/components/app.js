@@ -21,9 +21,14 @@ import NavLinks from "./partials/navigation";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt, faAt, faKey } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSignOutAlt,
+  faAt,
+  faKey,
+  faEdit
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSignOutAlt, faAt, faKey);
+library.add(faSignOutAlt, faAt, faKey, faEdit);
 
 export default class App extends Component {
   constructor(props) {

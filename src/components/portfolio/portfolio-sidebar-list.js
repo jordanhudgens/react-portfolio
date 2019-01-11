@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function(props) {
   const handleImageDefault = imgUrl => {
@@ -18,7 +19,9 @@ export default function(props) {
 
         <div className="content">
           <h2 className="title">{portfolioItem.name}</h2>
-          <a onClick={() => props.handleEditClick(portfolioItem)}>Edit Me</a>
+          <a onClick={() => props.handleEditClick(portfolioItem)}>
+            <FontAwesomeIcon icon="edit" />
+          </a>
         </div>
       </div>
     );
