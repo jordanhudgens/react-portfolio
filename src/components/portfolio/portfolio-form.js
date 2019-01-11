@@ -15,7 +15,10 @@ export default class PortfolioForm extends Component {
       url: "",
       thumb_image: "",
       banner_image: "",
-      logo: ""
+      logo: "",
+      editMode: false,
+      apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+      apiAction: "post"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,7 +36,6 @@ export default class PortfolioForm extends Component {
   }
 
   handleChange(event) {
-    console.log("event details...", event.target.name, event.target.value);
     if (event.target.files) {
       this.setState({ [event.target.name]: event.target.files[0] });
     } else {
@@ -66,14 +68,18 @@ export default class PortfolioForm extends Component {
   }
 
   handleSubmit(event) {
-    axios
-      .post(
-        "https://jordan.devcamp.space/portfolio/portfolio_items",
-        this.buildForm(),
-        { withCredentials: true }
-      )
+    axios({
+      method: this.state.apiAction,
+      url: this.state.apiUrl,
+      data: this.buildForm(),
+      withCredentials: true
+    })
       .then(response => {
-        this.props.handleFormSubmission(response.data.portfolio_item);
+        if (this.state.editMode) {
+          this.props.handleEditFormSubmission();
+        } else {
+          this.props.handleNewFormSubmission(response.data.portfolio_item);
+        }
 
         this.setState({
           name: "",
@@ -83,7 +89,10 @@ export default class PortfolioForm extends Component {
           url: "",
           thumb_image: "",
           banner_image: "",
-          logo: ""
+          logo: "",
+          editMode: false,
+          apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+          apiAction: "post"
         });
 
         [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
@@ -137,6 +146,7 @@ export default class PortfolioForm extends Component {
   componentDidUpdate() {
     if (Object.keys(this.props.portfolioToEdit).length > 0) {
       const {
+        id,
         name,
         description,
         category,
@@ -161,7 +171,10 @@ export default class PortfolioForm extends Component {
         url: url || "",
         thumb_image: thumb_image || "",
         banner_image: banner_image || "",
-        logo: logo || ""
+        logo: logo || "",
+        editMode: true,
+        apiUrl: `https://jordan.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiAction: "patch"
       });
     }
   }
