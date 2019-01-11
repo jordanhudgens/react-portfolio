@@ -16,11 +16,10 @@ export default function(props) {
           <img src={handleImageDefault(portfolioItem.thumb_image_url)} />
         </div>
 
-        <h2>{portfolioItem.id}</h2>
-
-        <div className="title">{portfolioItem.name}</div>
-
-        <a onClick={() => props.handleEditClick(portfolioItem)}>Edit Me</a>
+        <div className="content">
+          <h2 className="title">{portfolioItem.name}</h2>
+          <a onClick={() => props.handleEditClick(portfolioItem)}>Edit Me</a>
+        </div>
       </div>
     );
   });

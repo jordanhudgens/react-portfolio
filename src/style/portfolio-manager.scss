@@ -30,6 +30,21 @@
       .thumb-img img {
         width: 100%;
       }
+
+      .content {
+        color: $offwhite;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+          cursor: pointer;
+          transition: 0.5s all ease-in-out;
+          &:hover {
+            color: $teal;
+          }
+        }
+      }
     }
   }
 }
