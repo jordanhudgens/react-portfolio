@@ -152,15 +152,15 @@ export default class PortfolioForm extends Component {
         category,
         position,
         url,
-        thumb_image,
-        banner_image,
-        logo
+        thumb_image_url,
+        banner_image_url,
+        logo_url
       } = this.props.portfolioToEdit;
 
       this.props.clearPortfolioToEdit();
 
       // TODO
-      // Pull in the images and allow for edits
+      // Build out the ability to override thumb value for dropzone
 
       this.setState({
         name: name || "",
@@ -168,12 +168,12 @@ export default class PortfolioForm extends Component {
         category: category || "",
         position: position || "",
         url: url || "",
-        thumb_image: thumb_image || "",
-        banner_image: banner_image || "",
-        logo: logo || "",
         editMode: true,
         apiUrl: `https://jordan.devcamp.space/portfolio/portfolio_items/${id}`,
-        apiAction: "patch"
+        apiAction: "patch",
+        thumb_image_url: thumb_image_url || "",
+        banner_image_url: banner_image_url || "",
+        logo_url: logo_url || ""
       });
     }
   }
@@ -232,6 +232,7 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="image-uploaders">
+          <h2>{this.state.thumb_image_url}</h2>
           <DropzoneComponent
             ref={this.thumbRef}
             config={this.componentConfig()}
@@ -239,6 +240,11 @@ export default class PortfolioForm extends Component {
             djsConfig={this.djsConfig()}
           >
             <div className="dz-message">Thumbnail</div>
+            {this.state.thumb_image_url ? (
+              <div className="dz-thumbnail">
+                <img src={this.state.thumb_image_url} />
+              </div>
+            ) : null}
           </DropzoneComponent>
 
           <DropzoneComponent
