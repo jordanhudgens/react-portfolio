@@ -232,6 +232,10 @@ export default class PortfolioForm extends Component {
           {this.state.thumb_image_url && this.state.editMode ? (
             <div className="portfolio-manager-image-wrapper">
               <img src={this.state.thumb_image_url} />
+
+              <div className="image-removal-link">
+                <a>Remove File</a>
+              </div>
             </div>
           ) : (
             <DropzoneComponent
