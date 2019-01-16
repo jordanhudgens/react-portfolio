@@ -8,6 +8,7 @@ export default class PortfolioForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       name: "",
       description: "",
       category: "eCommerce",
@@ -29,6 +30,7 @@ export default class PortfolioForm extends Component {
     this.handleLogoDrop = this.handleLogoDrop.bind(this);
     this.handleBannerDrop = this.handleBannerDrop.bind(this);
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
 
     this.thumbRef = React.createRef();
     this.bannerRef = React.createRef();
@@ -139,8 +141,23 @@ export default class PortfolioForm extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log("componentDidMount", this.props.portfolioToEdit);
+  deleteImage(imageType) {
+    console.log("imageType for deletion", imageType);
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state
+          .id}?image_type=${imageType}`,
+        { withCredentials: true }
+      )
+      .then(response => {
+        console.log("response....", response);
+        return response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    event.preventDefault();
   }
 
   componentDidUpdate() {
@@ -160,6 +177,7 @@ export default class PortfolioForm extends Component {
       this.props.clearPortfolioToEdit();
 
       this.setState({
+        id: id,
         name: name || "",
         description: description || "",
         category: category || "",
@@ -234,7 +252,9 @@ export default class PortfolioForm extends Component {
               <img src={this.state.thumb_image_url} />
 
               <div className="image-removal-link">
-                <a>Remove File</a>
+                <a onClick={() => this.deleteImage("thumb_image")}>
+                  Remove File
+                </a>
               </div>
             </div>
           ) : (
