@@ -159,9 +159,6 @@ export default class PortfolioForm extends Component {
 
       this.props.clearPortfolioToEdit();
 
-      // TODO
-      // Build out the ability to override thumb value for dropzone
-
       this.setState({
         name: name || "",
         description: description || "",
@@ -232,20 +229,20 @@ export default class PortfolioForm extends Component {
         </div>
 
         <div className="image-uploaders">
-          <h2>{this.state.thumb_image_url}</h2>
-          <DropzoneComponent
-            ref={this.thumbRef}
-            config={this.componentConfig()}
-            eventHandlers={this.handleThumbDrop()}
-            djsConfig={this.djsConfig()}
-          >
-            <div className="dz-message">Thumbnail</div>
-            {this.state.thumb_image_url ? (
-              <div className="dz-thumbnail">
-                <img src={this.state.thumb_image_url} />
-              </div>
-            ) : null}
-          </DropzoneComponent>
+          {this.state.thumb_image_url && this.state.editMode ? (
+            <div className="portfolio-manager-image-wrapper">
+              <img src={this.state.thumb_image_url} />
+            </div>
+          ) : (
+            <DropzoneComponent
+              ref={this.thumbRef}
+              config={this.componentConfig()}
+              eventHandlers={this.handleThumbDrop()}
+              djsConfig={this.djsConfig()}
+            >
+              <div className="dz-message">Thumbnail</div>
+            </DropzoneComponent>
+          )}
 
           <DropzoneComponent
             ref={this.bannerRef}

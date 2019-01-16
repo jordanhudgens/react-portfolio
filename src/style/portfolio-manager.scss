@@ -5,6 +5,15 @@
   .left-column {
     background-color: $offwhite;
 
+    .portfolio-manager-image-wrapper {
+      img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
     input[type="text"] {
       background-color: transparent;
       border-top: 1px solid transparent;
