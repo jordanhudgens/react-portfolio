@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function(props) {
@@ -18,7 +19,10 @@ export default function(props) {
         </div>
 
         <div className="content">
-          <h2 className="title">{portfolioItem.name}</h2>
+          <Link to={`/portfolio/${portfolioItem.id}`}>
+            <h2 className="title">{portfolioItem.name}</h2>
+          </Link>
+
           <a onClick={() => props.handleEditClick(portfolioItem)}>
             <FontAwesomeIcon icon="edit" />
           </a>
