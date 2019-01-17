@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
@@ -38,7 +39,11 @@ export default class PortfolioList extends Component {
 
   portfolioItems() {
     return this.state.data.map(item => {
-      return <PortfolioItem key={item.id} item={item} />;
+      return (
+        <Link key={item.id} to={`/portfolio/${item.id}`}>
+          <PortfolioItem item={item} />
+        </Link>
+      );
     });
   }
 
