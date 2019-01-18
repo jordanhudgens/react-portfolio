@@ -28,7 +28,7 @@ export default function(props) {
               <FontAwesomeIcon icon="edit" />
             </a>
 
-            <a onClick={() => props.handleEditClick(portfolioItem)}>
+            <a onClick={() => props.handleDeleteClick(portfolioItem)}>
               <FontAwesomeIcon icon="trash" />
             </a>
           </div>
