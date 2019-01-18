@@ -64,6 +64,8 @@
         align-items: center;
 
         a {
+          color: $offwhite;
+          text-decoration: none;
           cursor: pointer;
           transition: 0.5s all ease-in-out;
           &:hover {
