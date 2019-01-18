@@ -27,6 +27,12 @@ export default class Blog extends Component {
       });
   }
 
+  // TODO
+  // Integrate pagination into API
+  // Integrate infinite scroll into front end
+  // Integrate editable input
+  // Integrate editable textarea
+
   render() {
     const blogRecords = this.state.blogItems.map(blogItem => {
       return <div>{blogItem.title}</div>;
