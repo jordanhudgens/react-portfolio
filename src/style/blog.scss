@@ -5,5 +5,16 @@
 
   .blog-list-item {
     width: 800px;
+    margin-bottom: 21px;
+
+    a {
+      color: $charcoal;
+      text-decoration: none;
+      transition: 0.5s all ease-in-out;
+
+      &:hover {
+        color: $dark-teal;
+      }
+    }
   }
 }

@@ -14,7 +14,9 @@ const BlogItem = props => {
 
   return (
     <div className="blog-list-item">
-      <h1>{title}</h1>
+      <Link to={`/blog/${id}`}>
+        <h1>{title}</h1>
+      </Link>
       <div className="blog-summary-wrapper">
         <Truncate
           lines={5}
