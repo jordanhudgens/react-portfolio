@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import striptags from "striptags";
 import Truncate from "react-truncate";
 
 const BlogItem = props => {
@@ -14,16 +16,15 @@ const BlogItem = props => {
     <div className="blog-list-item">
       <h1>{title}</h1>
       <div className="blog-summary-wrapper">
-        {content}
         <Truncate
-          children={1}
+          lines={5}
           ellipsis={
             <span>
-              ... <a href="/link/to/article">Read more</a>
+              ... <Link to={`/blog/${id}`}>Read more</Link>
             </span>
           }
         >
-          {content}
+          {striptags(content)}
         </Truncate>
       </div>
     </div>
