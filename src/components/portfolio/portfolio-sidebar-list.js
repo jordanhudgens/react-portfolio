@@ -23,9 +23,15 @@ export default function(props) {
             <h2 className="title">{portfolioItem.name}</h2>
           </Link>
 
-          <a onClick={() => props.handleEditClick(portfolioItem)}>
-            <FontAwesomeIcon icon="edit" />
-          </a>
+          <div className="actions">
+            <a onClick={() => props.handleEditClick(portfolioItem)}>
+              <FontAwesomeIcon icon="edit" />
+            </a>
+
+            <a onClick={() => props.handleEditClick(portfolioItem)}>
+              <FontAwesomeIcon icon="trash" />
+            </a>
+          </div>
         </div>
       </div>
     );

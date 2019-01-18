@@ -63,6 +63,12 @@
         justify-content: space-between;
         align-items: center;
 
+        .actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 15px;
+        }
+
         a {
           color: $offwhite;
           text-decoration: none;
