@@ -30,6 +30,7 @@ export default class Blog extends Component {
   }
 
   // TODO
+  // Finish implementing 'New Blog' page
   // Integrate pagination into API
   // Integrate infinite scroll into front end
   // Integrate editable input
