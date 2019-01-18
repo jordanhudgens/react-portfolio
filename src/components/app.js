@@ -7,6 +7,7 @@ import About from "./views/about";
 import PortfolioDetail from "./views/portfolio-detail";
 import PortfolioManager from "./views/portfolio-manager";
 import Blog from "./views/blog";
+import NewBlog from "./views/new-blog";
 import BlogDetail from "./views/blog-detail";
 import Auth from "./views/auth";
 import NoMatch from "./views/no-match";
@@ -88,7 +89,12 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route key="1" path="/portfolio-manager" component={PortfolioManager} />
+      <Route
+        key="portfolio-manager"
+        path="/portfolio-manager"
+        component={PortfolioManager}
+      />,
+      <Route key="new-blog" path="/new-blog" component={NewBlog} />
     ];
   }
 

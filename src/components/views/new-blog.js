@@ -3,7 +3,7 @@ import axios from "axios";
 import BlogForm from "../blog/blog-form";
 import BlogSidebarList from "../blog/blog-sidebar-list";
 
-export default class BlogManager extends Component {
+export default class NewBlog extends Component {
   constructor() {
     super();
 
