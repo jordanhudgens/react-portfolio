@@ -17,5 +17,15 @@
         color: $dark-teal;
       }
     }
+
+    .featured-image-wrapper {
+      img {
+        margin: 15px 0px;
+        width: 100%;
+        height: 350px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+    }
   }
 }

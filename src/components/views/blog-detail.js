@@ -37,6 +37,7 @@ export default class BlogDetail extends Component {
   }
 
   render() {
+    console.log("this.state.blog", this.state.blogItem);
     const {
       id,
       blog_status,
@@ -50,6 +51,9 @@ export default class BlogDetail extends Component {
         <div className="blog-list-wrapper">
           <div className="blog-list-item">
             <h1>{title}</h1>
+            <div className="featured-image-wrapper">
+              <img src={featured_image_url} />
+            </div>
             {ReactHtmlParser(content)}
           </div>
         </div>
