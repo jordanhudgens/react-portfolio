@@ -12,7 +12,7 @@ export default class Blog extends Component {
       hasMore: true,
       totalCount: 0,
       isLoading: false,
-      currentPage: 1,
+      currentPage: 0,
       blogItems: []
     };
 
@@ -26,17 +26,11 @@ export default class Blog extends Component {
 
       if (error || isLoading || totalCount === blogItems.length) return;
 
-      // Checks that the page has scrolled to the bottom
       if (
         window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight
       ) {
-        this.setState(
-          {
-            currentPage: currentPage + 1
-          },
-          getBlogItems()
-        );
+        getBlogItems();
       }
     };
   }
@@ -46,7 +40,10 @@ export default class Blog extends Component {
   }
 
   getBlogItems() {
-    console.log("current state", this.state);
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    });
+
     axios
       .get(
         `https://jordan.devcamp.space/portfolio/portfolio_blogs?page=${this
@@ -56,9 +53,10 @@ export default class Blog extends Component {
         }
       )
       .then(response => {
-        console.log("Getting more...", response);
         this.setState({
-          blogItems: [...response.data.portfolio_blogs],
+          blogItems: this.state.blogItems.concat([
+            ...response.data.portfolio_blogs
+          ]),
           totalCount: response.data.meta.total_records
         });
       })
