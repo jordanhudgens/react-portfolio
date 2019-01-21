@@ -66,7 +66,7 @@ export default class Blog extends Component {
   }
 
   // TODO
-  // Integrate infinite scroll into front end
+  // Loading -> add loader throughout the app
   // Integrate editable input
   // Integrate editable textarea
 
