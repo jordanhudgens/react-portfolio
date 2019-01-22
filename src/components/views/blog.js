@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import BlogItem from "../blog/blog-item";
 
@@ -11,7 +12,7 @@ export default class Blog extends Component {
       error: false,
       hasMore: true,
       totalCount: 0,
-      isLoading: false,
+      isLoading: true,
       currentPage: 0,
       blogItems: []
     };
@@ -41,7 +42,8 @@ export default class Blog extends Component {
 
   getBlogItems() {
     this.setState({
-      currentPage: this.state.currentPage + 1
+      currentPage: this.state.currentPage + 1,
+      isLoading: true
     });
 
     axios
@@ -57,7 +59,8 @@ export default class Blog extends Component {
           blogItems: this.state.blogItems.concat([
             ...response.data.portfolio_blogs
           ]),
-          totalCount: response.data.meta.total_records
+          totalCount: response.data.meta.total_records,
+          isLoading: false
         });
       })
       .catch(error => {
@@ -75,6 +78,15 @@ export default class Blog extends Component {
       return <BlogItem key={blogItem.id} blogItem={blogItem} />;
     });
 
-    return <div className="blog-list-wrapper">{blogRecords}</div>;
+    return (
+      <div className="blog-list-wrapper">
+        {blogRecords}
+        {this.state.isLoading ? (
+          <div className="loading-icon-wrapper">
+            <FontAwesomeIcon icon="spinner" spin />
+          </div>
+        ) : null}
+      </div>
+    );
   }
 }
