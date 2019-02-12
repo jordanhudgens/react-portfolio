@@ -18,6 +18,7 @@ export default class Blog extends Component {
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
+    this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
 
     window.onscroll = () => {
       const {
@@ -34,6 +35,10 @@ export default class Blog extends Component {
         getBlogItems();
       }
     };
+  }
+
+  handleNewBlogClick() {
+    console.log("clickedddd");
   }
 
   componentWillMount() {
@@ -80,6 +85,11 @@ export default class Blog extends Component {
 
     return (
       <div className="blog-list-wrapper">
+        <div className="new-blog-link">
+          <a onClick={this.handleNewBlogClick}>
+            <FontAwesomeIcon icon="plus-circle" />
+          </a>
+        </div>
         {blogRecords}
         {this.state.isLoading ? (
           <div className="loading-icon-wrapper">
