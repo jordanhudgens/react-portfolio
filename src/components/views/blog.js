@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import NewBlogModal from "../modals/new-blog-modal";
 import BlogItem from "../blog/blog-item";
 
 export default class Blog extends Component {
@@ -14,11 +15,13 @@ export default class Blog extends Component {
       totalCount: 0,
       isLoading: true,
       currentPage: 0,
-      blogItems: []
+      blogItems: [],
+      blogModalIsOpen: false
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
 
     window.onscroll = () => {
       const {
@@ -37,8 +40,16 @@ export default class Blog extends Component {
     };
   }
 
+  handleModalClose() {
+    this.setState({
+      blogModalIsOpen: false
+    });
+  }
+
   handleNewBlogClick() {
-    console.log("clickedddd");
+    this.setState({
+      blogModalIsOpen: true
+    });
   }
 
   componentWillMount() {
@@ -85,11 +96,16 @@ export default class Blog extends Component {
 
     return (
       <div className="blog-list-wrapper">
+        <NewBlogModal
+          modalIsOpen={this.state.blogModalIsOpen}
+          handleModalClose={this.handleModalClose}
+        />
         <div className="new-blog-link">
           <a onClick={this.handleNewBlogClick}>
             <FontAwesomeIcon icon="plus-circle" />
           </a>
         </div>
+
         {blogRecords}
         {this.state.isLoading ? (
           <div className="loading-icon-wrapper">
