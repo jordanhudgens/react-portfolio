@@ -23,6 +23,10 @@ export default class Blog extends Component {
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
 
+    this.activateInfiniteScroll();
+  }
+
+  activateInfiniteScroll() {
     window.onscroll = () => {
       const {
         getBlogItems,
