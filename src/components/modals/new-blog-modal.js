@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
+import BlogForm from "../blog/blog-form";
 
 ReactModal.setAppElement(".app-wrapper");
 
@@ -23,25 +24,20 @@ export default class NewBlogModal extends Component {
       }
     };
 
-    this.state = {
-      title: "",
-      content: "",
-      blog_status: "",
-      featured_image: ""
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormSubmission = this.handleFormSubmission.bind(this);
+    this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  handleFormSubmission(blog) {
+    console.log("handleFormSubmission", blog);
+    // this.setState({
+    //   blogItems: [blog].concat(this.state.blogItems)
+    // });
   }
 
-  // TODO
-  // Create a form object
-  // Take from the new blog component
-  handleSubmit(event) {}
+  handleFormSubmissionError(error) {
+    console.log("error", error);
+  }
 
   render() {
     return (
@@ -52,40 +48,10 @@ export default class NewBlogModal extends Component {
         }}
         style={this.customStyles}
       >
-        <form onSubmit={this.handleSubmit} className="form-wrapper">
-          <div className="form-group">
-            <input
-              className="full-width-element"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              className="full-width-element"
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
-
-          <div className="login-btn-wrapper">
-            <button
-              className="primary-rounded-button button-small"
-              type="submit"
-            >
-              Login
-            </button>
-          </div>
-        </form>
+        <BlogForm
+          handleFormSubmission={this.handleFormSubmission}
+          handleFormSubmissionError={this.handleFormSubmissionError}
+        />
       </ReactModal>
     );
   }
