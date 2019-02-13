@@ -1,10 +1,10 @@
 .ReactModal__Content {
   .rdw-editor-main {
-    height: 300px !important;
+    height: 120px !important;
   }
 
   .DraftEditor-root {
-    height: calc(100% - 15%) !important;
+    height: calc(100% - 40%) !important;
   }
 
   .rdw-image-modal {
@@ -17,5 +17,10 @@
 
   .rdw-embedded-modal {
     left: -125px !important;
+  }
+
+  @include input-element();
+  input {
+    margin-bottom: 5px;
   }
 }

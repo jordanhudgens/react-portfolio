@@ -124,7 +124,7 @@ export default class BlogForm extends Component {
           <input
             type="text"
             name="blog_status"
-            placeholder="Status..."
+            placeholder="Status"
             value={this.state.blog_status}
             onChange={this.handleChange}
           />
