@@ -23,7 +23,18 @@ export default class Blog extends Component {
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
 
+    this.handleSuccessfullNewBlogFormSubmission = this.handleSuccessfullNewBlogFormSubmission.bind(
+      this
+    );
+
     this.activateInfiniteScroll();
+  }
+
+  handleSuccessfullNewBlogFormSubmission(blog) {
+    this.setState({
+      blogItems: [blog].concat(this.state.blogItems),
+      blogModalIsOpen: false
+    });
   }
 
   activateInfiniteScroll() {
@@ -92,6 +103,7 @@ export default class Blog extends Component {
   // Loading -> add loader throughout the app
   // Integrate editable input
   // Integrate editable textarea
+  // Ensure blog modal button only shows when a user is logged in
 
   render() {
     const blogRecords = this.state.blogItems.map(blogItem => {
@@ -103,6 +115,9 @@ export default class Blog extends Component {
         <NewBlogModal
           modalIsOpen={this.state.blogModalIsOpen}
           handleModalClose={this.handleModalClose}
+          handleSuccessfullNewBlogFormSubmission={
+            this.handleSuccessfullNewBlogFormSubmission
+          }
         />
         <div className="new-blog-link">
           <a onClick={this.handleNewBlogClick}>

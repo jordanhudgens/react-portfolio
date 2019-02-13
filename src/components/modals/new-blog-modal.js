@@ -29,10 +29,7 @@ export default class NewBlogModal extends Component {
   }
 
   handleFormSubmission(blog) {
-    console.log("handleFormSubmission", blog);
-    // this.setState({
-    //   blogItems: [blog].concat(this.state.blogItems)
-    // });
+    this.props.handleSuccessfullNewBlogFormSubmission(blog);
   }
 
   handleFormSubmissionError(error) {
