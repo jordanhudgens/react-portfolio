@@ -101,10 +101,8 @@ export default class Blog extends Component {
   }
 
   // TODO
-  // Loading -> add loader throughout the app
   // Integrate editable input
   // Integrate editable textarea
-  // Ensure blog modal button only shows when a user is logged in
 
   render() {
     const blogRecords = this.state.blogItems.map(blogItem => {
