@@ -68,6 +68,7 @@ export default class Blog extends Component {
   }
 
   componentWillMount() {
+    console.log("loggedInStatus", this.props.loggedInStatus);
     this.getBlogItems();
   }
 
@@ -119,11 +120,14 @@ export default class Blog extends Component {
             this.handleSuccessfullNewBlogFormSubmission
           }
         />
-        <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>
-            <FontAwesomeIcon icon="plus-circle" />
-          </a>
-        </div>
+
+        {this.props.loggedInStatus === "LOGGED_IN" ? (
+          <div className="new-blog-link">
+            <a onClick={this.handleNewBlogClick}>
+              <FontAwesomeIcon icon="plus-circle" />
+            </a>
+          </div>
+        ) : null}
 
         {blogRecords}
         {this.state.isLoading ? (

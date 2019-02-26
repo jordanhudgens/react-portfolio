@@ -40,7 +40,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN",
+      isLoading: true
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
@@ -73,13 +74,9 @@ export default class App extends Component {
       .then(response => {
         if (
           response.data.logged_in &&
-          this.state.loggedInStatus === "LOGGED_IN"
-        ) {
-          return response.data;
-        } else if (
-          response.data.logged_in &&
           this.state.loggedInStatus === "NOT_LOGGED_IN"
         ) {
+          console.log("condition 2");
           this.setState({
             loggedInStatus: "LOGGED_IN"
           });
@@ -91,6 +88,10 @@ export default class App extends Component {
             loggedInStatus: "NOT_LOGGED_IN"
           });
         }
+
+        this.setState({
+          isLoading: false
+        });
       })
       .catch(error => {
         console.log(error);
@@ -113,6 +114,14 @@ export default class App extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="loading-icon-wrapper">
+          <FontAwesomeIcon icon="spinner" spin />
+        </div>
+      );
+    }
+
     return (
       <div className="container">
         <Router>
@@ -135,7 +144,12 @@ export default class App extends Component {
                 )}
               />
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
-              <Route path="/blogs" component={Blog} />
+              <Route
+                path="/blogs"
+                render={props => (
+                  <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+                )}
+              />
               <Route path="/blog/:slug" component={BlogDetail} />
               {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
