@@ -116,7 +116,7 @@ export default class App extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <div className="loading-icon-wrapper">
+        <div className="app-loader loading-icon-wrapper">
           <FontAwesomeIcon icon="spinner" spin />
         </div>
       );
