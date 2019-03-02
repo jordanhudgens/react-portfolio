@@ -34,7 +34,6 @@ export default class BlogForm extends Component {
       this.setState({
         id: this.props.blog.id,
         title: this.props.blog.title,
-        content: this.props.blog.content,
         blog_status: this.props.blog.blog_status
       });
     }
@@ -145,6 +144,8 @@ export default class BlogForm extends Component {
           <RichTextEditor
             ref={this.richTextRef}
             handleRichTextEditorChange={this.handleRichTextEditorChange}
+            editMode={this.props.editMode}
+            contentToEdit={this.props.blog.content}
           />
         </div>
 
