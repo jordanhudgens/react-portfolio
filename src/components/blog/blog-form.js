@@ -29,6 +29,17 @@ export default class BlogForm extends Component {
     this.richTextRef = React.createRef();
   }
 
+  componentWillMount() {
+    if (this.props.editMode) {
+      this.setState({
+        id: this.props.blog.id,
+        title: this.props.blog.title,
+        content: this.props.blog.content,
+        blog_status: this.props.blog.blog_status
+      });
+    }
+  }
+
   handleChange(event) {
     console.log("handlechange", event);
     if (event.target.files) {
