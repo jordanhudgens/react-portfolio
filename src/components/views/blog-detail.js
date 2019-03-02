@@ -5,6 +5,7 @@ import ReactHtmlParser, {
   convertNodeToElement,
   htmlparser2
 } from "react-html-parser";
+import BlogForm from "../blog/blog-form";
 
 export default class BlogDetail extends Component {
   constructor(props) {
@@ -12,8 +13,11 @@ export default class BlogDetail extends Component {
 
     this.state = {
       currentId: this.props.match.params.slug,
-      blogItem: {}
+      blogItem: {},
+      editMode: false
     };
+
+    this.handleEditClick = this.handleEditClick.bind(this);
   }
 
   getBlogItem() {
@@ -37,8 +41,14 @@ export default class BlogDetail extends Component {
     this.getBlogItem();
   }
 
+  handleEditClick() {
+    console.log("handle edit mode");
+    this.setState({
+      editMode: true
+    });
+  }
+
   render() {
-    console.log("this.state.blog", this.state.blogItem);
     const {
       id,
       blog_status,
@@ -47,11 +57,13 @@ export default class BlogDetail extends Component {
       title
     } = this.state.blogItem;
 
-    return (
-      <div>
-        <div className="blog-list-wrapper">
+    const contentManager = () => {
+      if (this.state.editMode) {
+        return <BlogForm />;
+      } else {
+        return (
           <div className="blog-list-item">
-            <h1>{title}</h1>
+            <h1 onClick={this.handleEditClick}>{title}</h1>
             {featured_image_url ? (
               <div className="featured-image-wrapper">
                 <img src={featured_image_url} />
@@ -59,7 +71,13 @@ export default class BlogDetail extends Component {
             ) : null}
             {ReactHtmlParser(content)}
           </div>
-        </div>
+        );
+      }
+    };
+
+    return (
+      <div>
+        <div className="blog-list-wrapper">{contentManager()}</div>
       </div>
     );
   }

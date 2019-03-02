@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
-import axios from "axios";
 import BlogForm from "../blog/blog-form";
 
 ReactModal.setAppElement(".app-wrapper");
