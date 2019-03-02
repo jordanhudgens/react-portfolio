@@ -19,8 +19,9 @@ export default class BlogDetail extends Component {
   getBlogItem() {
     axios
       .get(
-        `https://jordan.devcamp.space/portfolio/portfolio_blogs/${this.state
-          .currentId}`
+        `https://jordan.devcamp.space/portfolio/portfolio_blogs/${
+          this.state.currentId
+        }`
       )
       .then(response => {
         this.setState({
@@ -51,9 +52,11 @@ export default class BlogDetail extends Component {
         <div className="blog-list-wrapper">
           <div className="blog-list-item">
             <h1>{title}</h1>
-            <div className="featured-image-wrapper">
-              <img src={featured_image_url} />
-            </div>
+            {featured_image_url ? (
+              <div className="featured-image-wrapper">
+                <img src={featured_image_url} />
+              </div>
+            ) : null}
             {ReactHtmlParser(content)}
           </div>
         </div>
