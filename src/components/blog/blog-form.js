@@ -145,7 +145,11 @@ export default class BlogForm extends Component {
             ref={this.richTextRef}
             handleRichTextEditorChange={this.handleRichTextEditorChange}
             editMode={this.props.editMode}
-            contentToEdit={this.props.blog.content}
+            contentToEdit={
+              this.props.blog && this.props.blog.content
+                ? this.props.blog.content
+                : null
+            }
           />
         </div>
 

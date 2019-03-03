@@ -20,6 +20,7 @@ class RichTextEditor extends Component {
   componentWillMount() {
     console.log("Mounted", this.props);
     if (this.props.editMode && this.props.contentToEdit) {
+      console.log("shouldn't be seeing this", this.props);
       const blocksFromHtml = htmlToDraft(this.props.contentToEdit);
       const { contentBlocks, entityMap } = blocksFromHtml;
       const contentState = ContentState.createFromBlockArray(
